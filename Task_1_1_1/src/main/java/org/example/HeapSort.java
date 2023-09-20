@@ -5,7 +5,6 @@ import java.util.Scanner;
 /**
  * Класс реализует пирамидальную сортировку
  */
-
 public class HeapSort {
     /**
      * Сортируем
@@ -18,7 +17,7 @@ public class HeapSort {
             heapify(arr, n, i);
 
         // Один за другим извлекаем элементы из кучи
-        for (int i=n-1; i>=0; i--) {
+        for (int i = n - 1; i >= 0; i--) {
             // Перемещаем текущий корень в конец
             int temp = arr[0];
             arr[0] = arr[i];
@@ -34,11 +33,10 @@ public class HeapSort {
      * Процедура для преобразования в двоичную кучу поддерева с корневым узлом i, что является
      * индексом в arr[]. n - размер кучи
      */
-    void heapify(int[] arr, int n, int i)
-    {
+    void heapify(int[] arr, int n, int i) {
         int largest = i; // инициализируем наибольший элемент как корень
-        int l = 2*i + 1; // левый = 2*i + 1
-        int r = 2*i + 2; // правый = 2*i + 2
+        int l = 2 * i + 1; // левый = 2*i + 1
+        int r = 2 * i + 2; // правый = 2*i + 2
 
         // Если левый дочерний элемент больше корня
         if (l < n && arr[l] > arr[largest])
@@ -63,8 +61,8 @@ public class HeapSort {
      */
     static void printArray(int[] arr) {
         int n = arr.length;
-        for (int i=0; i<n; ++i)
-            System.out.print(arr[i]+" ");
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
         System.out.println();
     }
 
