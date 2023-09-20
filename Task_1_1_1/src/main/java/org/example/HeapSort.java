@@ -71,19 +71,19 @@ public class HeapSort {
     /**
      * main
      */
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int size = input.nextInt();
-        int[] array = new int[size];
-        System.out.println("Insert array elements:");
-
-        for (int i = 0; i < size; i++) {
-            array[i] = input.nextInt(); //
-        }
-        HeapSort ob = new HeapSort();
-        ob.sort(array);
-
-        System.out.println("Sorted array is");
-        printArray(array);
-    }
+//    public static void main(String[] args) {
+//        Scanner input = new Scanner(System.in);
+//        int size = input.nextInt();
+//        int[] array = new int[size];
+//        System.out.println("Insert array elements:");
+//
+//        for (int i = 0; i < size; i++) {
+//            array[i] = input.nextInt(); //
+//        }
+//        HeapSort ob = new HeapSort();
+//        ob.sort(array);
+//
+//        System.out.println("Sorted array is");
+//        printArray(array);
+//    }
 }
