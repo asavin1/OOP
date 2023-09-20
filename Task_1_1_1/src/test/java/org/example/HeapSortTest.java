@@ -14,7 +14,7 @@ public class HeapSortTest {
         HeapSort ob = new HeapSort();
         ob.sort(arr);
 
-        assertEquals(ans, arr);
+        assertArrayEquals(ans, arr);
     }
 
 
