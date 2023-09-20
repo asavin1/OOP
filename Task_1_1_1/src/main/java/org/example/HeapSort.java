@@ -1,6 +1,6 @@
 package org.example;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 /**
  * Класс реализует пирамидальную сортировку
@@ -58,19 +58,20 @@ public class HeapSort {
         }
     }
 
-    /**
-     * Вспомогательная функция для вывода на экран массива размера n
-     */
-    static void printArray(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
-    }
+//    /**
+//     * Вспомогательная функция для вывода на экран массива размера n
+//     */
+//    static void printArray(int[] arr) {
+//        int n = arr.length;
+//        for (int i = 0; i < n; ++i) {
+//            System.out.print(arr[i] + " ");
+//        }
+//        System.out.println();
+//    }
 
-    /**
-     * main
-     */
+//    /**
+//     * main
+//     */
 //    public static void main(String[] args) {
 //        Scanner input = new Scanner(System.in);
 //        int size = input.nextInt();
