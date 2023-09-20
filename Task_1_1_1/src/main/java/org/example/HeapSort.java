@@ -1,11 +1,16 @@
 package org.example;
 
-// Java program for implementation of Heap Sort
+import java.util.Scanner;
 
-public class HeapSort
-{
-    public void sort(int arr[])
-    {
+/**
+ * Класс реализует пирамидальную сортировку
+ */
+
+public class HeapSort {
+    /**
+     * Сортируем
+     */
+    public void sort(int[] arr) {
         int n = arr.length;
 
         // Построение кучи (перегруппируем массив)
@@ -13,8 +18,7 @@ public class HeapSort
             heapify(arr, n, i);
 
         // Один за другим извлекаем элементы из кучи
-        for (int i=n-1; i>=0; i--)
-        {
+        for (int i=n-1; i>=0; i--) {
             // Перемещаем текущий корень в конец
             int temp = arr[0];
             arr[0] = arr[i];
@@ -25,11 +29,14 @@ public class HeapSort
         }
     }
 
-    // Процедура для преобразования в двоичную кучу поддерева с корневым узлом i, что является
-// индексом в arr[]. n - размер кучи
-    void heapify(int arr[], int n, int i)
+
+    /**
+     * Процедура для преобразования в двоичную кучу поддерева с корневым узлом i, что является
+     * индексом в arr[]. n - размер кучи
+     */
+    void heapify(int[] arr, int n, int i)
     {
-        int largest = i; // Инициализируем наибольший элемент как корень
+        int largest = i; // инициализируем наибольший элемент как корень
         int l = 2*i + 1; // левый = 2*i + 1
         int r = 2*i + 2; // правый = 2*i + 2
 
@@ -41,8 +48,7 @@ public class HeapSort
         if (r < n && arr[r] > arr[largest])
             largest = r;
         // Если самый большой элемент не корень
-        if (largest != i)
-        {
+        if (largest != i) {
             int swap = arr[i];
             arr[i] = arr[largest];
             arr[largest] = swap;
@@ -52,25 +58,32 @@ public class HeapSort
         }
     }
 
-    /* Вспомогательная функция для вывода на экран массива размера n */
-    static void printArray(int arr[])
-    {
+    /**
+     * Вспомогательная функция для вывода на экран массива размера n
+     */
+    static void printArray(int[] arr) {
         int n = arr.length;
         for (int i=0; i<n; ++i)
             System.out.print(arr[i]+" ");
         System.out.println();
     }
 
-    // Управляющая программа
-    public static void main(String args[])
-    {
-        int arr[] = {12, 11, 13, 5, 6, 7};
-        int n = arr.length;
+    /**
+     * main
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int size = input.nextInt();
+        int[] array = new int[size];
+        System.out.println("Insert array elements:");
 
+        for (int i = 0; i < size; i++) {
+            array[i] = input.nextInt(); //
+        }
         HeapSort ob = new HeapSort();
-        ob.sort(arr);
+        ob.sort(array);
 
         System.out.println("Sorted array is");
-        printArray(arr);
+        printArray(array);
     }
 }
