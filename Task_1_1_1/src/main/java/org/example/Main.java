@@ -2,8 +2,11 @@ package org.example;
 
 import java.util.Scanner;
 
+/**
+ * Точка входа
+ */
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Insert size array:");
         int size = input.nextInt();
