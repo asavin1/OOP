@@ -61,7 +61,7 @@ public class Polynomial {
         }
         return str;
     }
-
+    
     static String sign(int a) {
         if (a < 0) {
             return " - ";
@@ -69,7 +69,9 @@ public class Polynomial {
             return " + ";
         }
     }
-
+    /**
+     * сложение
+     */
     public Polynomial plus(Polynomial p) {
         int dif = Math.abs(this.coefs.length - p.coefs.length);
         if (this.coefs.length > p.coefs.length) {
@@ -84,7 +86,9 @@ public class Polynomial {
             return p;
         }
     }
-
+    /**
+     * вычитание
+     */
     public Polynomial minus(Polynomial p) {
         int dif = Math.abs(this.coefs.length - p.coefs.length);
         if (this.coefs.length >= p.coefs.length) {
@@ -99,7 +103,9 @@ public class Polynomial {
             return p;
         }
     }
-
+    /**
+     * умножение
+     */
     public Polynomial times(Polynomial p) {
         Polynomial newp = new Polynomial(new int[this.coefs.length + p.coefs.length - 1]);
 
@@ -110,7 +116,9 @@ public class Polynomial {
         }
         return newp;
     }
-
+    /**
+     * значение в точке
+     */
     public int evaluate(int x) {
         int eval = 0;
         for (int i = 0; i < this.coefs.length; i++) {
@@ -118,7 +126,9 @@ public class Polynomial {
         }
         return eval;
     }
-
+    /**
+     * i-ая производная
+     */
     public Polynomial differentiate(int p) {
         for (int k = 0; k < p; k++) {
             Polynomial newp = new Polynomial(new int[this.coefs.length - 1]);
