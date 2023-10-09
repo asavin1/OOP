@@ -5,83 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a310e7-a18e-4eac-9d03-f3295cf768ee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/allclasses-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/allpackages-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/copy.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/element-list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/help-doc.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/index-all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/jquery-ui.overrides.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/legal/COPYRIGHT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/legal/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/legal/jquery.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/legal/jqueryUI.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/link.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/member-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/module-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/org/example/HeapSort.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/org/example/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/org/example/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/org/example/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/overview-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/package-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/resources/glass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/resources/x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-icons_222222_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-icons_454545_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-icons_888888_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/jquery-3.5.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/jquery-3.6.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/jquery-ui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/jquery-ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script-dir/jquery-ui.structure.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/search-page.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/tag-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/javadoc/type-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/main/java/org/example/Polynomial.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task_1_1_1/src/test/java/org/example/PolynomialTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Polynomial.class.uniqueId1" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Polynomial.class.uniqueId1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/PolynomialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/PolynomialTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
