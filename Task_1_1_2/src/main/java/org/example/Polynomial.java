@@ -21,8 +21,7 @@ public class Polynomial {
         if (this.coefs.length == 2) {
             if (this.coefs[0] != 0 && this.coefs[0] != 1) {
                 str += this.coefs[0] + "x";
-            }
-            else if (this.coefs[0] == 1) {
+            } else if (this.coefs[0] == 1) {
                 str += "x";
             }
             if (this.coefs[1] != 0) {
@@ -34,24 +33,21 @@ public class Polynomial {
         if (this.coefs.length > 2) {
             if (this.coefs[0] != 0 && this.coefs[0] != 1) {
                 str += this.coefs[0] + "x^" + (this.coefs.length - 1);
-            }
-            else if (this.coefs[0] == 1) {
+            } else if (this.coefs[0] == 1) {
                 str += "x^" + (this.coefs.length - 1);
             }
 
             for (int i = 1; i < this.coefs.length - 2; i++) {
                 if (this.coefs[i] != 0 && this.coefs[0] != 1) {
                     str += sign(this.coefs[i]) + Math.abs(this.coefs[i]) + "x^" + (this.coefs.length - i - 1);
-                }
-                else if (this.coefs[0] == 1) {
+                } else if (this.coefs[0] == 1) {
                     str += sign(this.coefs[i]) + "x^" + (this.coefs.length - i - 1);
                 }
             }
 
             if (this.coefs[this.coefs.length - 2] != 0 && this.coefs[this.coefs.length - 2] != 1) {
                 str += sign(this.coefs[this.coefs.length - 2]) + Math.abs(this.coefs[this.coefs.length - 2]) + "x";
-            }
-            else if (this.coefs[this.coefs.length - 2] == 1) {
+            } else if (this.coefs[this.coefs.length - 2] == 1) {
                 str += sign(this.coefs[this.coefs.length - 2]) + "x";
             }
 
@@ -118,7 +114,7 @@ public class Polynomial {
     public int evaluate(int x) {
         int eval = 0;
         for (int i = 0; i < this.coefs.length; i++) {
-            eval += this.coefs[i] * (int)Math.pow(x, (this.coefs.length - i - 1));
+            eval += this.coefs[i] * (int) Math.pow(x, (this.coefs.length - i - 1));
         }
         return eval;
     }
