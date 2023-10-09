@@ -61,7 +61,7 @@ public class Polynomial {
         }
         return str;
     }
-    
+
     static String sign(int a) {
         if (a < 0) {
             return " - ";
@@ -69,6 +69,7 @@ public class Polynomial {
             return " + ";
         }
     }
+
     /**
      * сложение
      */
@@ -86,6 +87,7 @@ public class Polynomial {
             return p;
         }
     }
+
     /**
      * вычитание
      */
@@ -103,6 +105,7 @@ public class Polynomial {
             return p;
         }
     }
+
     /**
      * умножение
      */
@@ -116,6 +119,7 @@ public class Polynomial {
         }
         return newp;
     }
+
     /**
      * значение в точке
      */
@@ -126,6 +130,7 @@ public class Polynomial {
         }
         return eval;
     }
+    
     /**
      * i-ая производная
      */
