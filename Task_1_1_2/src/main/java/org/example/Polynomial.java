@@ -3,66 +3,74 @@ package org.example;
 import java.util.Arrays;
 
 public class Polynomial {
-    int[] coefs;
+    private int[] coefs;
 
-    Polynomial(int[] arr) {
-        coefs = arr;
+    public Polynomial(int[] arr) {
+        coefs = new int[arr.length];
+        System.arraycopy(arr, 0, coefs, 0, arr.length);
+    }
+
+    public int[] getCoefs() {
+        return coefs;
     }
 
     @Override
     public String toString() {
-        String str = "";
+        var str = new StringBuilder();
 
         if (this.coefs.length == 1 && this.coefs[0] != 0) {
-            str += this.coefs[0];
-            return str;
+            str.append(this.coefs[0]);
+            return str.toString();
         }
 
         if (this.coefs.length == 2) {
             if (this.coefs[0] != 0 && this.coefs[0] != 1) {
-                str += this.coefs[0] + "x";
+                str.append(this.coefs[0]).append("x");
             } else if (this.coefs[0] == 1) {
-                str += "x";
+                str.append("x");
             }
             if (this.coefs[1] != 0) {
-                str += sign(this.coefs[1]) + Math.abs(this.coefs[1]);
+                str.append(sign(this.coefs[1])).append(Math.abs(this.coefs[1]));
             }
-            return str;
+            return str.toString();
         }
 
         if (this.coefs.length > 2) {
             if (this.coefs[0] != 0 && this.coefs[0] != 1) {
-                str += this.coefs[0] + "x^" + (this.coefs.length - 1);
+                str.append(this.coefs[0]).append("x^").append(this.coefs.length - 1);
             } else if (this.coefs[0] == 1) {
-                str += "x^" + (this.coefs.length - 1);
+                str.append("x^").append(this.coefs.length - 1);
             }
 
             for (int i = 1; i < this.coefs.length - 2; i++) {
                 if (this.coefs[i] != 0 && this.coefs[0] != 1) {
-                    str += sign(this.coefs[i]) + Math.abs(this.coefs[i]) + "x^" + (this.coefs.length - i - 1);
+                    str.append(sign(this.coefs[i])).append(Math.abs(this.coefs[i]));
+                    str.append("x^").append(this.coefs.length - i - 1);
                 } else if (this.coefs[0] == 1) {
-                    str += sign(this.coefs[i]) + "x^" + (this.coefs.length - i - 1);
+                    str.append(sign(this.coefs[i])).append("x^").append(this.coefs.length - i - 1);
                 }
             }
 
             if (this.coefs[this.coefs.length - 2] != 0 && this.coefs[this.coefs.length - 2] != 1) {
-                str += sign(this.coefs[this.coefs.length - 2]) + Math.abs(this.coefs[this.coefs.length - 2]) + "x";
+                str.append(sign(this.coefs[this.coefs.length - 2]));
+                str.append(Math.abs(this.coefs[this.coefs.length - 2])).append("x");
             } else if (this.coefs[this.coefs.length - 2] == 1) {
-                str += sign(this.coefs[this.coefs.length - 2]) + "x";
+                str.append(sign(this.coefs[this.coefs.length - 2])).append("x");
             }
 
             if (this.coefs[this.coefs.length - 1] != 0) {
-                str += sign(this.coefs[this.coefs.length - 1]) + Math.abs(this.coefs[this.coefs.length - 1]);
+                str.append(sign(this.coefs[this.coefs.length - 1]));
+                str.append(Math.abs(this.coefs[this.coefs.length - 1]));
             }
         }
 
         if (str.isEmpty()) {
             return "0";
         }
-        return str;
+        return str.toString();
     }
 
-    static String sign(int a) {
+    private static String sign(int a) {
         if (a < 0) {
             return " - ";
         } else {
@@ -110,14 +118,19 @@ public class Polynomial {
      * умножение.
      */
     public Polynomial times(Polynomial p) {
-        Polynomial newp = new Polynomial(new int[this.coefs.length + p.coefs.length - 1]);
+        if ((this.coefs.length != 0) && (p.coefs.length != 0)) {
+            var newp = new Polynomial(new int[this.coefs.length + p.coefs.length - 1]);
 
-        for (int i = 0; i < this.coefs.length; i++) {
-            for (int j = 0; j < p.coefs.length; j++) {
-                newp.coefs[i + j] += p.coefs[j] * this.coefs[i];
+            for (int i = 0; i < this.coefs.length; i++) {
+                for (int j = 0; j < p.coefs.length; j++) {
+                    newp.coefs[i + j] += p.coefs[j] * this.coefs[i];
+                }
             }
+            return newp;
+        } else {
+            System.out.print("Не удалось выполнить операцию");
+            return this;
         }
-        return newp;
     }
 
     /**
@@ -134,18 +147,32 @@ public class Polynomial {
     /**
      * i-ая производная.
      */
-    public Polynomial differentiate(int p) {
-        for (int k = 0; k < p; k++) {
-            Polynomial newp = new Polynomial(new int[this.coefs.length - 1]);
-            for (int i = 0; i < this.coefs.length - 1; i++) {
-                newp.coefs[i] = (this.coefs.length - i - 1) * this.coefs[i];
-            }
-            this.coefs = newp.coefs;
+    public void differentiate(int p) {
+        if (this.coefs.length < p) {
+            System.out.print("Не удалось выполнить операцию");
         }
-        return this;
+        if ((this.coefs.length - p) > 1) {
+            for (int k = 0; k < p; k++) {
+                var newp = new Polynomial(new int[this.coefs.length - 1]);
+                for (int i = 0; i < this.coefs.length - 1; i++) {
+                    newp.coefs[i] = (this.coefs.length - i - 1) * this.coefs[i];
+                }
+                this.coefs = newp.coefs;
+            }
+        }
+        if ((this.coefs.length == 1) || this.coefs.length == p) {
+            var newp = new Polynomial(new int[1]);
+            newp.coefs[0] = 0;
+            this.coefs = newp.coefs;
+
+        }
     }
 
-    public boolean equals(Polynomial p) {
-        return Arrays.equals(this.coefs, p.coefs);
+    @Override
+    public boolean equals(Object p) {
+        if (p.getClass() == this.getClass()) {
+            return (Arrays.equals(((Polynomial) p).coefs, this.coefs));
+        }
+        return false;
     }
 }
