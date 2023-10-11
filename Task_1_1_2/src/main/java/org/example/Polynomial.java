@@ -64,7 +64,7 @@ public class Polynomial {
             }
         }
 
-        if (str.isEmpty()) {
+        if (str.toString().isEmpty()) {
             return "0";
         }
         return str.toString();
