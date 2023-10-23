@@ -2,7 +2,9 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        var p1 = new Polynomial(new int[] {4, 3, 6, 7});
-        System.out.println(p1.evaluate(1));
+        var p1 = new Polynomial(new int[] {1, 0, 0});
+        var p2 = new Polynomial(new int[] {0});
+        p1.differentiate(5);
+        System.out.println(p1);
     }
 }

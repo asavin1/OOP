@@ -11,7 +11,10 @@ public class Polynomial {
     }
 
     public int[] getCoefs() {
-        return coefs;
+        int[] c;
+        c = new int[this.coefs.length];
+        System.arraycopy(this.coefs, 0, c, 0, this.coefs.length);
+        return c;
     }
 
     @Override
@@ -128,8 +131,9 @@ public class Polynomial {
             }
             return newp;
         } else {
-            System.out.print("Не удалось выполнить операцию");
-            return this;
+            var newp = new Polynomial(new int[1]);
+            newp.coefs[1] = 0;
+            return newp;
         }
     }
 
@@ -148,9 +152,6 @@ public class Polynomial {
      * i-ая производная.
      */
     public void differentiate(int p) {
-        if (this.coefs.length < p) {
-            System.out.print("Не удалось выполнить операцию");
-        }
         if ((this.coefs.length - p) > 1) {
             for (int k = 0; k < p; k++) {
                 var newp = new Polynomial(new int[this.coefs.length - 1]);
@@ -160,18 +161,21 @@ public class Polynomial {
                 this.coefs = newp.coefs;
             }
         }
-        if ((this.coefs.length == 1) || this.coefs.length == p) {
+        else {
             var newp = new Polynomial(new int[1]);
             newp.coefs[0] = 0;
             this.coefs = newp.coefs;
-
         }
     }
 
     @Override
     public boolean equals(Object p) {
+        if (p == null){
+            System.out.print("Вы передали null\n");
+            return false;
+        }
         if (p.getClass() == this.getClass()) {
-            return (Arrays.equals(((Polynomial) p).coefs, this.coefs));
+            return Arrays.equals(((Polynomial) p).coefs, this.coefs);
         }
         return false;
     }
