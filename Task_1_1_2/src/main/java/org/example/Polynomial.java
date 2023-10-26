@@ -19,122 +19,119 @@ public class Polynomial {
 
     @Override
     public String toString() {
-        var str = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-        if (this.coefs.length == 1 && this.coefs[0] != 0) {
-            str.append(this.coefs[0]);
-            return str.toString();
-        }
+        boolean isFirstNonZero = true; // Флаг для определения первого ненулевого элемента
 
-        if (this.coefs.length == 2) {
-            if (this.coefs[0] != 0 && this.coefs[0] != 1) {
-                str.append(this.coefs[0]).append("x");
-            } else if (this.coefs[0] == 1) {
-                str.append("x");
-            }
-            if (this.coefs[1] != 0) {
-                str.append(sign(this.coefs[1])).append(Math.abs(this.coefs[1]));
-            }
-            return str.toString();
-        }
+        for (int i = coefs.length - 1; i >= 0; i--) {
+            if (coefs[i] != 0) {
+                if (!isFirstNonZero) {
+                    if (coefs[i] > 0) {
+                        sb.append(" + ");
+                    } else {
+                        sb.append(" - ");
+                    }
+                } else {
+                    if (coefs[i] < 0) {
+                        sb.append("-");
+                    }
+                    isFirstNonZero = false;
+                }
 
-        if (this.coefs.length > 2) {
-            if (this.coefs[0] != 0 && this.coefs[0] != 1) {
-                str.append(this.coefs[0]).append("x^").append(this.coefs.length - 1);
-            } else if (this.coefs[0] == 1) {
-                str.append("x^").append(this.coefs.length - 1);
-            }
+                if (Math.abs(coefs[i]) != 1 || i == 0) {
+                    sb.append(Math.abs(coefs[i]));
+                }
 
-            for (int i = 1; i < this.coefs.length - 2; i++) {
-                if (this.coefs[i] != 0 && this.coefs[0] != 1) {
-                    str.append(sign(this.coefs[i])).append(Math.abs(this.coefs[i]));
-                    str.append("x^").append(this.coefs.length - i - 1);
-                } else if (this.coefs[0] == 1) {
-                    str.append(sign(this.coefs[i])).append("x^").append(this.coefs.length - i - 1);
+                if (i > 0) {
+                    sb.append("x");
+
+                    if (i > 1) {
+                        sb.append("^").append(i);
+                    }
                 }
             }
-
-            if (this.coefs[this.coefs.length - 2] != 0 && this.coefs[this.coefs.length - 2] != 1) {
-                str.append(sign(this.coefs[this.coefs.length - 2]));
-                str.append(Math.abs(this.coefs[this.coefs.length - 2])).append("x");
-            } else if (this.coefs[this.coefs.length - 2] == 1) {
-                str.append(sign(this.coefs[this.coefs.length - 2])).append("x");
-            }
-
-            if (this.coefs[this.coefs.length - 1] != 0) {
-                str.append(sign(this.coefs[this.coefs.length - 1]));
-                str.append(Math.abs(this.coefs[this.coefs.length - 1]));
-            }
         }
 
-        if (str.toString().isEmpty()) {
-            return "0";
+        if (sb.isEmpty()) { // Если полином состоит только из нулевых коэффициентов
+            sb.append("0");
         }
-        return str.toString();
-    }
 
-    private static String sign(int a) {
-        if (a < 0) {
-            return " - ";
-        } else {
-            return " + ";
-        }
+        return sb.toString();
     }
 
     /**
      * сложение.
      */
     public Polynomial plus(Polynomial p) {
-        int dif = Math.abs(this.coefs.length - p.coefs.length);
-        if (this.coefs.length > p.coefs.length) {
-            for (int i = p.coefs.length - 1; i >= 0; i--) {
-                this.coefs[i + dif] += p.coefs[i];
+        int maxLength = Math.max(coefs.length, p.coefs.length);
+        int[] resultCoefs = new int[maxLength];
+
+        for (int i = 0; i < maxLength; i++) {
+            int coef1;
+            if (i < coefs.length) {
+                coef1 = coefs[i];
+            } else {
+                coef1 = 0;
             }
-            return this;
-        } else {
-            for (int i = this.coefs.length - 1; i >= 0; i--) {
-                p.coefs[i + dif] += this.coefs[i];
+
+            int coef2;
+            if (i < p.coefs.length) {
+                coef2 = p.coefs[i];
+            } else {
+                coef2 = 0;
             }
-            return p;
+
+            resultCoefs[i] = coef1 + coef2;
         }
+
+        return new Polynomial(resultCoefs);
     }
 
     /**
      * вычитание.
      */
     public Polynomial minus(Polynomial p) {
-        int dif = Math.abs(this.coefs.length - p.coefs.length);
-        if (this.coefs.length >= p.coefs.length) {
-            for (int i = p.coefs.length - 1; i >= 0; i--) {
-                this.coefs[i + dif] -= p.coefs[i];
+        int maxLength = Math.max(coefs.length, p.coefs.length);
+        int[] resultCoefs = new int[maxLength];
+
+        for (int i = 0; i < maxLength; i++) {
+            int coef1;
+            if (i < coefs.length) {
+                coef1 = coefs[i];
+            } else {
+                coef1 = 0;
             }
-            return this;
-        } else {
-            for (int i = this.coefs.length - 1; i >= 0; i--) {
-                p.coefs[i + dif] -= this.coefs[i];
+
+            int coef2;
+            if (i < p.coefs.length) {
+                coef2 = p.coefs[i];
+            } else {
+                coef2 = 0;
             }
-            return p;
+
+            resultCoefs[i] = coef1 - coef2;
         }
+
+        return new Polynomial(resultCoefs);
     }
 
     /**
      * умножение.
      */
     public Polynomial times(Polynomial p) {
-        if ((this.coefs.length != 0) && (p.coefs.length != 0)) {
-            var newp = new Polynomial(new int[this.coefs.length + p.coefs.length - 1]);
-
-            for (int i = 0; i < this.coefs.length; i++) {
-                for (int j = 0; j < p.coefs.length; j++) {
-                    newp.coefs[i + j] += p.coefs[j] * this.coefs[i];
-                }
-            }
-            return newp;
-        } else {
-            var newp = new Polynomial(new int[1]);
-            newp.coefs[1] = 0;
-            return newp;
+        if (coefs.length == 0 || p.coefs.length == 0) {
+            return new Polynomial(new int[0]);
         }
+
+        int[] resultCoefs = new int[coefs.length + p.coefs.length - 1];
+
+        for (int i = 0; i < coefs.length; i++) {
+            for (int j = 0; j < p.coefs.length; j++) {
+                resultCoefs[i + j] += coefs[i] * p.coefs[j];
+            }
+        }
+
+        return new Polynomial(resultCoefs);
     }
 
     /**
@@ -142,31 +139,40 @@ public class Polynomial {
      */
     public int evaluate(int x) {
         int eval = 0;
-        for (int i = 0; i < this.coefs.length; i++) {
-            eval += this.coefs[i] * (int) Math.pow(x, (this.coefs.length - i - 1));
+        int power = 1;
+
+        for (int i = 0; i < coefs.length; i++) {
+            eval += coefs[i] * power;
+            power *= x;
         }
+
         return eval;
     }
 
     /**
      * i-ая производная.
      */
-    public void differentiate(int p) {
+    public Polynomial differentiate(int p) {
+        int[] tempCoefs = new int[this.coefs.length];
+        System.arraycopy(this.coefs, 0, tempCoefs, 0, this.coefs.length);
+        var temp = new Polynomial(tempCoefs);
         if ((this.coefs.length - p) > 1) {
             for (int k = 0; k < p; k++) {
-                var newp = new Polynomial(new int[this.coefs.length - 1]);
-                for (int i = 0; i < this.coefs.length - 1; i++) {
-                    newp.coefs[i] = (this.coefs.length - i - 1) * this.coefs[i];
+                var newp = new Polynomial(new int[temp.coefs.length - 1]);
+                for (int i = 0; i < temp.coefs.length - 1; i++) {
+                    newp.coefs[i] = (i+1) * temp.coefs[i+1];
                 }
-                this.coefs = newp.coefs;
+                temp.coefs = newp.coefs;
             }
+            return temp;
         }
         else {
             var newp = new Polynomial(new int[1]);
             newp.coefs[0] = 0;
-            this.coefs = newp.coefs;
+            return newp;
         }
     }
+
 
     @Override
     public boolean equals(Object p) {
