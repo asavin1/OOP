@@ -52,7 +52,7 @@ public class Polynomial {
             }
         }
 
-        if (sb.isEmpty()) { // Если полином состоит только из нулевых коэффициентов
+        if (sb.length() == 0) { // Если полином состоит только из нулевых коэффициентов
             sb.append("0");
         }
 
@@ -160,13 +160,12 @@ public class Polynomial {
             for (int k = 0; k < p; k++) {
                 var newp = new Polynomial(new int[temp.coefs.length - 1]);
                 for (int i = 0; i < temp.coefs.length - 1; i++) {
-                    newp.coefs[i] = (i+1) * temp.coefs[i+1];
+                    newp.coefs[i] = (i + 1) * temp.coefs[i + 1];
                 }
                 temp.coefs = newp.coefs;
             }
             return temp;
-        }
-        else {
+        } else {
             var newp = new Polynomial(new int[1]);
             newp.coefs[0] = 0;
             return newp;
@@ -176,7 +175,7 @@ public class Polynomial {
 
     @Override
     public boolean equals(Object p) {
-        if (p == null){
+        if (p == null) {
             System.out.print("Вы передали null\n");
             return false;
         }
