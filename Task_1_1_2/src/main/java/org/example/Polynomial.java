@@ -23,23 +23,23 @@ public class Polynomial {
 
         boolean isFirstNonZero = true; // Флаг для определения первого ненулевого элемента
 
-        for (int i = coefs.length - 1; i >= 0; i--) {
-            if (coefs[i] != 0) {
+        for (int i = this.coefs.length - 1; i >= 0; i--) {
+            if (this.coefs[i] != 0) {
                 if (!isFirstNonZero) {
-                    if (coefs[i] > 0) {
+                    if (this.coefs[i] > 0) {
                         sb.append(" + ");
                     } else {
                         sb.append(" - ");
                     }
                 } else {
-                    if (coefs[i] < 0) {
+                    if (this.coefs[i] < 0) {
                         sb.append("-");
                     }
                     isFirstNonZero = false;
                 }
 
-                if (Math.abs(coefs[i]) != 1 || i == 0) {
-                    sb.append(Math.abs(coefs[i]));
+                if (Math.abs(this.coefs[i]) != 1 || i == 0) {
+                    sb.append(Math.abs(this.coefs[i]));
                 }
 
                 if (i > 0) {
@@ -63,13 +63,13 @@ public class Polynomial {
      * сложение.
      */
     public Polynomial plus(Polynomial p) {
-        int maxLength = Math.max(coefs.length, p.coefs.length);
+        int maxLength = Math.max(this.coefs.length, p.coefs.length);
         int[] resultCoefs = new int[maxLength];
 
         for (int i = 0; i < maxLength; i++) {
             int coef1;
-            if (i < coefs.length) {
-                coef1 = coefs[i];
+            if (i < this.coefs.length) {
+                coef1 = this.coefs[i];
             } else {
                 coef1 = 0;
             }
@@ -91,13 +91,13 @@ public class Polynomial {
      * вычитание.
      */
     public Polynomial minus(Polynomial p) {
-        int maxLength = Math.max(coefs.length, p.coefs.length);
+        int maxLength = Math.max(this.coefs.length, p.coefs.length);
         int[] resultCoefs = new int[maxLength];
 
         for (int i = 0; i < maxLength; i++) {
             int coef1;
-            if (i < coefs.length) {
-                coef1 = coefs[i];
+            if (i < this.coefs.length) {
+                coef1 = this.coefs[i];
             } else {
                 coef1 = 0;
             }
@@ -119,15 +119,15 @@ public class Polynomial {
      * умножение.
      */
     public Polynomial times(Polynomial p) {
-        if (coefs.length == 0 || p.coefs.length == 0) {
+        if (this.coefs.length == 0 || p.coefs.length == 0) {
             return new Polynomial(new int[0]);
         }
 
-        int[] resultCoefs = new int[coefs.length + p.coefs.length - 1];
+        int[] resultCoefs = new int[this.coefs.length + p.coefs.length - 1];
 
-        for (int i = 0; i < coefs.length; i++) {
+        for (int i = 0; i < this.coefs.length; i++) {
             for (int j = 0; j < p.coefs.length; j++) {
-                resultCoefs[i + j] += coefs[i] * p.coefs[j];
+                resultCoefs[i + j] += this.coefs[i] * p.coefs[j];
             }
         }
 
@@ -141,7 +141,7 @@ public class Polynomial {
         int eval = 0;
         int power = 1;
 
-        for (int i = 0; i < coefs.length; i++) {
+        for (int i = 0; i < this.coefs.length; i++) {
             eval += coefs[i] * power;
             power *= x;
         }
