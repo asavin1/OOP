@@ -8,7 +8,13 @@ import java.util.Arrays;
 import static org.example.findSubstringIndices.find;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * тестим.
+ */
 public class findSubstringIndicesTest {
+    /**
+     * тестим.
+     */
     @Test
     void test1() {
         var filename = "src/test/resources/" + "test1.txt";
@@ -17,6 +23,9 @@ public class findSubstringIndicesTest {
         assertEquals(find(filename, substring), except);
     }
 
+    /**
+     * тестим.
+     */
     @Test
     void test2() {
         var filename = "src/test/resources/" + "test2.txt";

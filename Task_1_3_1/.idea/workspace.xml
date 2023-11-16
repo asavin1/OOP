@@ -131,7 +131,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/findSubstringIndices.java</url>
-          <line>18</line>
+          <line>15</line>
           <properties class="org.example.findSubstringIndices" method="find">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
