@@ -1,9 +1,8 @@
 package org.example;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
