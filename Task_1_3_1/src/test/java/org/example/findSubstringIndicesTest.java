@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class findSubstringIndicesTest {
     @Test
-    void test1()  {
+    void test1() {
         var filename = "src/test/resources/" + "test1.txt";
         var substring = "бра";
         var except = new ArrayList<>(Arrays.asList(1, 8));
@@ -18,7 +18,7 @@ public class findSubstringIndicesTest {
     }
 
     @Test
-    void test2()  {
+    void test2() {
         var filename = "src/test/resources/" + "test2.txt";
         var substring = "AAA";
         var except = new ArrayList<>(Arrays.asList(0, 4, 5, 6, 7));

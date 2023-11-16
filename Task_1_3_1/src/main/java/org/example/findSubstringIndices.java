@@ -9,7 +9,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+/**
+ * ищем подстроку в строке.
+ */
 public class findSubstringIndices {
+    /**
+     * ищем подстроку в строке.
+     */
     public static ArrayList<Integer> find(String filename, String substr) {
         var substring = new String(substr.getBytes(), StandardCharsets.UTF_8);
 
@@ -25,7 +31,7 @@ public class findSubstringIndices {
             int index = 0;
 
             char[] sub = new char[substring.length()];
-            for (int i=0; i<substring.length(); i++) {
+            for (int i = 0; i < substring.length(); i++) {
                 sub[i] = substring.charAt(i);
             }
 
@@ -46,7 +52,9 @@ public class findSubstringIndices {
         return result;
     }
 
-
+    /**
+     * ищем подстроку в строке.
+     */
     public static void main(String[] args) {
         String filename = "input.txt";
         String substring = "бра";
