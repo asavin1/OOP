@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.findSubstringIndicesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-16T16:59:10" hostname="DESKTOP-IREEJCC" time="0.042">
+  <properties/>
+  <testcase name="test1()" classname="org.example.findSubstringIndicesTest" time="0.042"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
