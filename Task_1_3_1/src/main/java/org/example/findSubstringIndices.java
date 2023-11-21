@@ -16,6 +16,10 @@ public class findSubstringIndices {
         var substring = new String(substr.getBytes(), StandardCharsets.UTF_8);
 
         var result = new ArrayList<Integer>();
+
+        if (substr.isEmpty()) {
+            return result;
+        }
         try {
             FileInputStream fileIS = new FileInputStream(filename);
             InputStreamReader inputSR = new InputStreamReader(fileIS, StandardCharsets.UTF_8);
