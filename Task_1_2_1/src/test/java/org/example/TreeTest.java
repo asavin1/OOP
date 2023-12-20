@@ -1,11 +1,16 @@
 package org.example;
 
+import java.util.Iterator;
+
 import org.junit.jupiter.api.Test;
 
-import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
+/**
+ * Тестим.
+ */
 public class TreeTest {
     /**
      * Тестируем добавление вершины.

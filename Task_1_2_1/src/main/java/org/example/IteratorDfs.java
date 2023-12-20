@@ -13,7 +13,9 @@ public class IteratorDfs<T> implements Iterator<T> {
     private final int numberOfNodes;  //количество вершин.
     private final Tree<T> startTree;  //изначальное дерево.
 
-
+    /**
+     * Конструктор.
+     */
     public IteratorDfs(Tree<T> tree) {
         this.stack = new Stack<>();
         stack.push(tree);

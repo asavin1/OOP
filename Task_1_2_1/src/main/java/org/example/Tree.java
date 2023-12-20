@@ -59,7 +59,8 @@ public class Tree<T> implements Iterable<T> {
      */
     public Tree<T> addChild(Tree<T> subTree) {
         if ((subTree == null) || (subTree.parent != null)) {
-            throw new IllegalArgumentException("Failed to add null subtree" + " or parent already exists");
+            throw new IllegalArgumentException("Failed to add null subtree"
+                    + " or parent already exists");
         }
         children.add(subTree);  //Добавляем поддерево в список детей.
         subTree.parent = this;  //Отмечаем наше дерево как родителя поддерева.
