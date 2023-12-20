@@ -1,6 +1,11 @@
 package org.example;
 
-import java.util.*;
+
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.NoSuchElementException;
 
 /**
  * Поиск в ширину.
