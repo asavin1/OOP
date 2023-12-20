@@ -153,14 +153,14 @@ public class Tree<T> implements Iterable<T> {
     /**
      * Getter для bfs.
      */
-    public Iterator<T> getIteratorBFS() {
+    public Iterator<T> getIteratorbfs() {
         return new IteratorBfs<>(this);
     }
 
     /**
      * Getter для dfs.
      */
-    public Iterator<T> getIteratorDFS() {
+    public Iterator<T> getIteratordfs() {
         return new IteratorDfs<>(this);
     }
 

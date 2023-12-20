@@ -115,7 +115,7 @@ public class TreeTest {
 
         StringBuilder res = new StringBuilder();
 
-        Iterator<String> dfs = tree.getIteratorDFS();
+        Iterator<String> dfs = tree.getIteratordfs();
         while (dfs.hasNext()) {
             res.append(dfs.next());
         }
@@ -135,7 +135,7 @@ public class TreeTest {
 
         StringBuilder res = new StringBuilder();
 
-        Iterator<String> dfs = tree.getIteratorBFS();
+        Iterator<String> dfs = tree.getIteratorbfs();
         while (dfs.hasNext()) {
             res.append(dfs.next());
         }
