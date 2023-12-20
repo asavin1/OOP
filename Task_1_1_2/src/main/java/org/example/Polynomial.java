@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Polynomial {
     private int[] coefs;
 
-
     public Polynomial(int[] arr) {
         coefs = new int[arr.length];
         System.arraycopy(arr, 0, coefs, 0, arr.length);
