@@ -23,7 +23,7 @@ public class findSubstringIndicesTest {
         var filename = "src/test/resources/" + "test1.txt";
         var substring = "бра";
         var except = new ArrayList<>(Arrays.asList(1, 8));
-        assertEquals(find(filename, substring), except);
+        assertEquals(find(filename, substring, false), except);
     }
 
     /**
@@ -36,7 +36,7 @@ public class findSubstringIndicesTest {
         var filename = "src/test/resources/" + "test2.txt";
         var substring = "AAA";
         var except = new ArrayList<>(Arrays.asList(0, 4, 5, 6, 7));
-        assertEquals(find(filename, substring), except);
+        assertEquals(find(filename, substring, false), except);
     }
 
     /**
@@ -49,7 +49,7 @@ public class findSubstringIndicesTest {
         var filename = "src/test/resources/" + "test2.txt";
         var substring = "банан";
         var except = new ArrayList<>(List.of());
-        assertEquals(find(filename, substring), except);
+        assertEquals(find(filename, substring, false), except);
     }
 
     /**
@@ -62,7 +62,7 @@ public class findSubstringIndicesTest {
         var filename = "src/test/resources/" + "test3.txt";
         var substring = "банан";
         var except = new ArrayList<>(List.of());
-        assertEquals(find(filename, substring), except);
+        assertEquals(find(filename, substring, false), except);
     }
 
     /**
@@ -75,6 +75,19 @@ public class findSubstringIndicesTest {
         var filename = "src/test/resources/" + "test4.txt";
         var substring = "A";
         var except = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));
-        assertEquals(find(filename, substring), except);
+        assertEquals(find(filename, substring, false), except);
+    }
+
+    /**
+     * тестим вот так, но читаем из ресурсов.
+     * файл: AAAAAAAA
+     * подстрока: A
+     */
+    @Test
+    void test6() {
+        var filename = "test4.txt";
+        var substring = "A";
+        var except = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));
+        assertEquals(find(filename, substring, true), except);
     }
 }
