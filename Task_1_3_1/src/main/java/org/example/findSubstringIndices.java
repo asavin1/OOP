@@ -1,10 +1,10 @@
 package org.example;
 
-import java.nio.charset.StandardCharsets;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-
 
 /**
  * ищем подстроку в строке.
