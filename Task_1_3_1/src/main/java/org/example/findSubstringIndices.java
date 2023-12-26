@@ -38,9 +38,10 @@ public class findSubstringIndices {
             BufferedReader bufferedReader;
             if (flag) {
                 //читаем из ресурсов.
-                findSubstringIndices a = new findSubstringIndices();
-                InputStream inputSR = a.getClass().getClassLoader().getResourceAsStream(filename);
-                bufferedReader = new BufferedReader(new InputStreamReader(inputSR));
+                findSubstringIndices ex = new findSubstringIndices();
+                InputStream inputSR = ex.getClass().getClassLoader().getResourceAsStream(filename);
+                bufferedReader = new BufferedReader(new
+                        InputStreamReader(inputSR, StandardCharsets.UTF_8));
             } else {
                 FileInputStream fileIS = new FileInputStream(filename);
                 InputStreamReader inputSR = new InputStreamReader(fileIS, StandardCharsets.UTF_8);

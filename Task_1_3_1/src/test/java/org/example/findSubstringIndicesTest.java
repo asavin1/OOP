@@ -85,8 +85,22 @@ public class findSubstringIndicesTest {
     @Test
     void test6() {
         var filename = "test4.txt";
-        var substring = "A";
+        var substring = "A"; //"❌ 📈 🍿"
         var except = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));
+        assertEquals(find(filename, substring, true), except);
+    }
+
+    /**
+     * тестим вот так, но читаем из ресурсов.
+     * подстрока: ™
+     * файл: 😊 你好 € ™
+     */
+    @Test
+    void test7() {
+        var filename = "test5.txt";
+        var substring = "™";
+        var except = new ArrayList<>();
+        except.add(8);
         assertEquals(find(filename, substring, true), except);
     }
 }
