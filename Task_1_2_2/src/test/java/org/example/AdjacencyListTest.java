@@ -180,8 +180,8 @@ public class AdjacencyListTest {
 
         assertEquals(adjacencyList.shortestPath(v1), actual);
         assertEquals(adjacencyList.shortestPath(v1).get(0).getDist(), 0);
-        assertEquals(adjacencyList.shortestPath(v1).get(2).getDist(), 5);
         assertEquals(adjacencyList.shortestPath(v1).get(1).getDist(), 3);
+        assertEquals(adjacencyList.shortestPath(v1).get(2).getDist(), 5);
         assertEquals(adjacencyList.shortestPath(v1).get(3).getDist(), 8);
     }
 
@@ -201,7 +201,7 @@ public class AdjacencyListTest {
         adjacencyList.addEdge(new Edge<>(v4, v3, 5));
         adjacencyList.addEdge(new Edge<>(v5, v1, 10));
 
-        var str = "v1 0\nv2 5\nv4 3\nv3 8\n";
+        var str = "v1 0\nv4 3\nv2 5\nv3 8\n";
 
         assertEquals(adjacencyList.shortestPathstring(v1), str);
     }

@@ -33,14 +33,14 @@ public class Vertex<T> implements Comparable<Vertex> {
     }
 
     /**
-     * Изменение вершины.
+     * изменение вершины.
      */
     public void changeValue(T value) {
         this.value = value;
     }
 
     /**
-     * Изменение дистанции.
+     * изменение дистанции.
      */
     public void changeDist(int newDist) {
         this.dist = newDist;
