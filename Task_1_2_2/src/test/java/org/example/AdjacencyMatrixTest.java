@@ -1,12 +1,14 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Тестируем.
+ */
 public class AdjacencyMatrixTest {
     /**
      * Тестируем чтение с файла.
