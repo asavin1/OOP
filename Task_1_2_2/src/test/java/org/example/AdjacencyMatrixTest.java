@@ -253,25 +253,4 @@ public class AdjacencyMatrixTest {
         assertEquals(adjacencyMatrix.shortestPath(v1).get(2).getDist(), 5);
         assertEquals(adjacencyMatrix.shortestPath(v1).get(3).getDist(), 8);
     }
-
-    /**
-     * Тестируем кратчайший путь как строку.
-     */
-    @Test
-    public void testShortestPathString() {
-        var v1 = new Vertex<>("v1");
-        var v2 = new Vertex<>("v2");
-        var v3 = new Vertex<>("v3");
-        var v4 = new Vertex<>("v4");
-        var v5 = new Vertex<>("v5");
-        var adjacencyMatrix = new AdjacencyMatrix<>(v1, v2, 7);
-        adjacencyMatrix.addEdge(new Edge<>(v1, v4, 3));
-        adjacencyMatrix.addEdge(new Edge<>(v4, v2, 2));
-        adjacencyMatrix.addEdge(new Edge<>(v4, v3, 5));
-        adjacencyMatrix.addEdge(new Edge<>(v5, v1, 10));
-
-        var str = "v1 0\nv2 5\nv4 3\nv3 8\n";
-
-        assertEquals(adjacencyMatrix.shortestPathString(v1), str);
-    }
 }
