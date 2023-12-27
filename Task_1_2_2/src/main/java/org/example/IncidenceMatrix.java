@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -190,7 +191,7 @@ public class IncidenceMatrix<T> extends Graph<T> {
             notVisited.remove(v);
             visited.add(v);
         }
-
+        Collections.sort(result);
         return result;
     }
 

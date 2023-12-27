@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -194,6 +196,7 @@ public class AdjacencyList<T> extends Graph<T> {
             visited.add(v1);
         }
 
+        Collections.sort(result);
         return result;
     }
 

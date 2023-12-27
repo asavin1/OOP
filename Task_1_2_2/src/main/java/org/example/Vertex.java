@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Вершина.
  */
-public class Vertex<T> {
+public class Vertex<T> implements Comparable<Vertex> {
     private T value;
 
     private int dist;
@@ -74,5 +74,10 @@ public class Vertex<T> {
         var vertex = (Vertex<?>) obj;
         //сравниваем по значению.
         return this.value.equals(vertex.value);
+    }
+
+    @Override
+    public int compareTo(Vertex a) {
+        return Integer.compare(this.dist, a.dist);
     }
 }

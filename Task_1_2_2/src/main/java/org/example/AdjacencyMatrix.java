@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -216,7 +217,7 @@ public class AdjacencyMatrix<T> extends Graph<T> {
             notVisited.remove(v1);
             visited.add(v1);
         }
-
+        Collections.sort(result);
         return result;
     }
 
