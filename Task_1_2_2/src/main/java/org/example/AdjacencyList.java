@@ -26,7 +26,7 @@ public class AdjacencyList<T> extends Graph<T> {
      * weight - вес нового ребра.
      */
     public AdjacencyList(Vertex<T> start, Vertex<T> end, int weight) {
-        //вызываем конструктор суперкласса Edge с передачей ему параметров start, end и weight.
+        //вызываем конструктор суперкласса Graph с передачей ему параметров start, end и weight.
         super(start, end, weight);
         //создаем новый объект HashMap и присваиваем полю adjacencyList.
         this.adjacencyList = new HashMap<>();
@@ -43,7 +43,7 @@ public class AdjacencyList<T> extends Graph<T> {
      * edge - ребро.
      */
     public AdjacencyList(Edge<T> edge) {
-        //вызываем конструктор суперкласса Edge.
+        //вызываем конструктор суперкласса Graph.
         super(edge);
         //создаем новый объект HashMap и присваиваем полю adjacencyList.
         this.adjacencyList = new HashMap<>();
