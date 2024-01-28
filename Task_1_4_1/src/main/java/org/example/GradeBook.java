@@ -16,10 +16,6 @@ public class GradeBook {
 
     /**
      * Конструктор.
-     *
-     * @param name
-     * @param surname
-     * @param group
      */
     public GradeBook(String name, String surname, int group) {
         this.name = name;
@@ -55,9 +51,6 @@ public class GradeBook {
 
     /**
      * Выставляем оценку для квалификационной работы.
-     *
-     * @param grade
-     * @throws IllegalArgumentException
      */
     public void set_qualification_workGrade(int grade) throws IllegalArgumentException {
         if (grade > 5 || grade < 2) {
@@ -68,10 +61,6 @@ public class GradeBook {
 
     /**
      * Добавление оценки
-     *
-     * @param subj
-     * @param grade
-     * @throws IllegalArgumentException
      */
     public void addGrade(String subj, int grade) throws IllegalArgumentException {
         if (grade > 5 || grade < 2) {
@@ -90,8 +79,6 @@ public class GradeBook {
 
     /**
      * Переход на следующий семестр.
-     *
-     * @throws IllegalArgumentException
      */
     public void nextSemester() throws IllegalArgumentException {
         if (this.semester == 8) {

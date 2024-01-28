@@ -14,8 +14,6 @@ import org.junit.jupiter.api.Test;
 public class GradeBookTest {
     /**
      * Тестируем добавление оценки.
-     *
-     * @throws IllegalArgumentException
      */
     @Test
     public void test_addGrade() throws IllegalArgumentException {
@@ -30,8 +28,6 @@ public class GradeBookTest {
 
     /**
      * Тестируем добавление оценки за квалификационную работу.
-     *
-     * @throws IllegalArgumentException
      */
     @Test
     public void test_set_qualification_workGrade() throws IllegalArgumentException {
@@ -42,8 +38,6 @@ public class GradeBookTest {
 
     /**
      * Тестируем смену семестра.
-     *
-     * @throws IllegalArgumentException
      */
     @Test
     public void test_nextSemester() throws IllegalArgumentException {
@@ -54,8 +48,6 @@ public class GradeBookTest {
 
     /**
      * Проверяем повышенную стипендию.
-     *
-     * @throws IllegalArgumentException
      */
     @Test
     public void test_increasedScholarShip() throws IllegalArgumentException {
@@ -71,8 +63,6 @@ public class GradeBookTest {
 
     /**
      * Проверяем среднюю оценку.
-     *
-     * @throws IllegalArgumentException
      */
     @Test
     public void test_averageGrade() throws IllegalArgumentException {
@@ -90,8 +80,6 @@ public class GradeBookTest {
 
     /**
      * Проверяем будет ли красный диплом (должен).
-     *
-     * @throws IllegalArgumentException
      */
     @Test
     public void test_redDiploma_true() throws IllegalArgumentException {
@@ -112,8 +100,6 @@ public class GradeBookTest {
 
     /**
      * Проверяем будет ли красный диплом (НЕ должен).
-     *
-     * @throws IllegalArgumentException
      */
     @Test
     public void testRedDiplomaFalse() throws IllegalArgumentException {
