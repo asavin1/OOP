@@ -143,6 +143,7 @@ public class GradeBook {
     /**
      * Принт.
      */
+    /*
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -166,4 +167,5 @@ public class GradeBook {
         }
         return str.toString();
     }
+    */
 }
