@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Класс для проверки есть ли в массиве НЕпростое число тремя способами.
  */
-public class checkPrimeNumbers {
+public class CheckPrimeNumbers {
     /**
      * Проверка на простоту.
      */
@@ -91,6 +91,6 @@ public class checkPrimeNumbers {
     public static boolean parallelCheck(int[] list) {
         return !Arrays.stream(list)
                 .parallel()
-                .allMatch(checkPrimeNumbers::isPrime);
+                .allMatch(CheckPrimeNumbers::isPrime);
     }
 }

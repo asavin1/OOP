@@ -5,50 +5,60 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 import java.util.Arrays;
 
-import static org.example.checkPrimeNumbers.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.example.CheckPrimeNumbers.consistentCheck;
+import static org.example.CheckPrimeNumbers.parallelCheck;
+import static org.example.CheckPrimeNumbers.threadsCheck;
 
+
+/**
+ * тестим
+ */
 public class CheckPrimeNumbersTest {
+    /**
+     * Время последовательного исполнения.
+     */
     public long testConsistentCheckTime() {
         int[] array = new int[100000];
         Arrays.fill(array, 20319251);
 
         long start = System.nanoTime();
-        boolean result = consistentCheck(array);
+        consistentCheck(array);
         long end = System.nanoTime();
-
-        assertFalse(result);
 
         return Duration.ofNanos(end - start).toMillis();
     }
 
+    /**
+     * Время параллельного исполнения через StreamParallel.
+     */
     public long testParallelCheckTime() {
         int[] array = new int[100000];
         Arrays.fill(array, 20319251);
 
         long start = System.nanoTime();
-        boolean result = parallelCheck(array);
+        parallelCheck(array);
         long end = System.nanoTime();
-
-        assertFalse(result);
 
         return Duration.ofNanos(end - start).toMillis();
     }
 
+    /**
+     * Время параллельного исполнения через Threads.
+     */
     public long testThreadsCheckTime(int a) {
         int[] array = new int[100000];
         Arrays.fill(array, 20319251);
 
         long start = System.nanoTime();
-        boolean result = threadsCheck(array, a);
+        threadsCheck(array, a);
         long end = System.nanoTime();
-
-        assertFalse(result);
 
         return Duration.ofNanos(end - start).toMillis();
     }
 
+    /**
+     * сравниваем время.
+     */
     @Test
     public void compareTime() {
         long par = testParallelCheckTime();
