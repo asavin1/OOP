@@ -17,7 +17,7 @@ public class HasNotPrimeCheckTest {
      * берём минимальное и максимальное значение int.
      */
     @Test
-    public void parallelTestBoundaryValues(){
+    public void parallelTestBoundaryValues() {
         var list = new int[2];
         list[0] = Integer.MIN_VALUE;
         list[1] = Integer.MAX_VALUE;
@@ -30,7 +30,7 @@ public class HasNotPrimeCheckTest {
      * берём минимальное и максимальное значение int.
      */
     @Test
-    public void threadsTestBoundaryValues(){
+    public void threadsTestBoundaryValues() {
         var list = new int[2];
         list[0] = Integer.MIN_VALUE;
         list[1] = Integer.MAX_VALUE;
@@ -43,7 +43,7 @@ public class HasNotPrimeCheckTest {
      * берём минимальное и максимальное значение int.
      */
     @Test
-    public void consistentTestBoundaryValues(){
+    public void consistentTestBoundaryValues() {
         var list = new int[2];
         list[0] = Integer.MIN_VALUE;
         list[1] = Integer.MAX_VALUE;
@@ -56,8 +56,8 @@ public class HasNotPrimeCheckTest {
      * даём список без НЕпростых чисел.
      */
     @Test
-    public void parallelTestFalse(){
-        var list = new int[] {2, 2};
+    public void parallelTestFalse() {
+        var list = new int[]{2, 2};
         var a = new ParallelCheck(6);
         assertFalse(a.hasNotPrime(list));
     }
@@ -67,8 +67,8 @@ public class HasNotPrimeCheckTest {
      * даём список без НЕпростых чисел.
      */
     @Test
-    public void threadsTestFalse(){
-        var list = new int[] {2, 2};
+    public void threadsTestFalse() {
+        var list = new int[]{2, 2};
         var a = new ThreadsCheck(6);
         assertFalse(a.hasNotPrime(list));
     }
@@ -78,8 +78,8 @@ public class HasNotPrimeCheckTest {
      * даём список без НЕпростых чисел.
      */
     @Test
-    public void consistentTestFalse(){
-        var list = new int[] {2, 2};
+    public void consistentTestFalse() {
+        var list = new int[]{2, 2};
         var a = new ConsistentCheck();
         assertFalse(a.hasNotPrime(list));
     }
@@ -89,7 +89,7 @@ public class HasNotPrimeCheckTest {
      * даём список список из 100000 элементов.
      */
     @Test
-    public void parallelTestBigData(){
+    public void parallelTestBigData() {
         int[] list = new int[100000];
         Arrays.fill(list, 20319251);
         var a = new ParallelCheck(6);
@@ -101,7 +101,7 @@ public class HasNotPrimeCheckTest {
      * даём список список из 100000 элементов.
      */
     @Test
-    public void threadsTestBigData(){
+    public void threadsTestBigData() {
         int[] list = new int[100000];
         Arrays.fill(list, 20319251);
         var a = new ThreadsCheck(6);
@@ -113,7 +113,7 @@ public class HasNotPrimeCheckTest {
      * даём список список из 100000 элементов.
      */
     @Test
-    public void consistentTestBigData(){
+    public void consistentTestBigData() {
         int[] list = new int[100000];
         Arrays.fill(list, 20319251);
         var a = new ConsistentCheck();
