@@ -119,4 +119,22 @@ public class HasNotPrimeCheckTest {
         var a = new ConsistentCheck();
         assertFalse(a.hasNotPrime(list));
     }
+
+    /**
+     * тестим необработанное исключение ArrayIndexOutOfBoundsException.
+     */
+    @Test
+    public void testUnhandledExceptionInThread() {
+        int[] list = {2, 2, 2, 2};
+        boolean[] tasks = new boolean[1];
+        Thread myThread = new Thread(new ThreadsCheck.MyThread(list, tasks, 0, 4, 0));
+
+        myThread.start();
+        try {
+            myThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        assertFalse(tasks[0]);
+    }
 }

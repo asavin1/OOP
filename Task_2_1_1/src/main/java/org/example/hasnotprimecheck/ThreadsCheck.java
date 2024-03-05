@@ -14,12 +14,12 @@ public class ThreadsCheck extends HasNotPrimeCheck {
     /**
      * Класс для создании нитей.
      */
-    public class MyThread extends Thread {
-        private int[] list;
-        private boolean[] tasks;
-        private int start;
-        private int end;
-        private int i;
+    public static class MyThread extends Thread {
+        private final int[] list;
+        private final boolean[] tasks;
+        private final int start;
+        private final int end;
+        private final int i;
 
         public MyThread(int[] list, boolean[] tasks, int start, int end, int i) {
             this.list = list;
@@ -31,15 +31,20 @@ public class ThreadsCheck extends HasNotPrimeCheck {
 
         @Override
         public void run() {
-            boolean result = false;
-            for (int j = start; j < end; j++) {
-                if (!isPrime(list[j])) {
-                    result = true;
-                    break;
+            try {
+                boolean result = false;
+                for (int j = start; j < end; j++) {
+                    if (!isPrime(list[j])) {
+                        result = true;
+                        break;
+                    }
+                    if (Thread.interrupted()) {
+                        return;
+                    }
                 }
-            }
-            synchronized (tasks) {
                 tasks[i] = result;
+            } catch (Exception e) {
+                System.out.println("Exception caught: " + e.getMessage());
             }
         }
     }
@@ -57,6 +62,9 @@ public class ThreadsCheck extends HasNotPrimeCheck {
                 threads[i].join();
                 if (tasks[i]) {
                     result = true;
+                    for (int j = 0; j < numberOfThreads; j++) {
+                        threads[i].interrupt();
+                    }
                     break;
                 }
             }
