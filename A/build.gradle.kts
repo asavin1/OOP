@@ -1,9 +1,9 @@
 plugins {
     id("java")
-    id("jacoco")
+    id ("jacoco")
 }
 
-group = "ru.nsu.chudinov"
+group = "org.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -11,11 +11,10 @@ repositories {
 }
 
 dependencies {
-    implementation("com.fasterxml.jackson.core:jackson-core:2.16.1")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
-    implementation("com.fasterxml.jackson.core:jackson-annotations:2.16.1")
+    implementation("org.jetbrains:annotations:24.0.0")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.jetbrains:annotations:24.0.0")
 }
 
 tasks.test {
