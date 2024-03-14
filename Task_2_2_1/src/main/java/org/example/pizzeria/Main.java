@@ -8,7 +8,6 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Pizzeria pizzeria;
-
         try {
             pizzeria = new Pizzeria(10000);
         } catch (IOException e) {

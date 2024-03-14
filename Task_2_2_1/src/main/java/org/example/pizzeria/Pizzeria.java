@@ -46,7 +46,7 @@ public class Pizzeria extends Thread {
         OrdersState ordersState;
         orders = new MyQueue<>();
         storage = new MyQueue<>(config.getStorageCapacity());
-        try (InputStream fileInputStream = ClassLoader.getSystemResourceAsStream(jsonOrdersState)) {
+        try (FileInputStream fileInputStream = new FileInputStream(jsonOrdersState)) {
             ordersState = objectMapper2.readValue(fileInputStream, OrdersState.class);
         }
         orders.setQueue(ordersState.getOrders());
