@@ -1,0 +1,38 @@
+package org.example;
+
+import org.example.pizzeria.Courier;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.example.pizzeria.Baker;
+import org.example.pizzeria.MyQueue;
+
+/**
+ * Тестируем курьера.
+ */
+public class CourierTest {
+    /**
+     * Делаем 3 заказа и проверяем ушли ли они со склада.
+     */
+    @Test
+    public void testCourier() throws InterruptedException {
+        MyQueue<Integer> orders = new MyQueue<>();
+        MyQueue<Integer> storage = new MyQueue<>();
+        int timeToCook = 100;
+        Baker baker = new Baker(timeToCook, orders, storage);
+        Courier courier = new Courier(1, storage);
+        baker.start();
+        courier.start();
+        for (int i = 1; i <= 3; i++) {
+            orders.push(i);
+        }
+        Thread.sleep(4000);
+        baker.interrupt();
+        baker.join();
+        courier.interrupt();
+        courier.join();
+        for (int i = 1; i <= 3; i++) {
+            Assertions.assertFalse(orders.getQueue().contains(i));
+            Assertions.assertFalse(storage.getQueue().contains(i));
+        }
+    }
+}

@@ -31,7 +31,7 @@ public class Baker extends Thread {
                 Thread.currentThread().interrupt();
                 return;
             }
-            System.out.println(order + " готовится\n");
+            System.out.println(order + " is cooking\n");
 
             try {
                 Thread.sleep(timeToCook); //готовим
@@ -42,10 +42,10 @@ public class Baker extends Thread {
                 } catch (InterruptedException e2) {
                     throw new RuntimeException(e2);
                 }
-                System.out.printf("%d заказ вернулся в очередь\n", order);
+                System.out.printf("%d order return to queue\n", order);
                 return;
             }
-            System.out.println(order + " готов и уже на складе\n");
+            System.out.println(order + " done and at storage now\n");
         }
     }
 }

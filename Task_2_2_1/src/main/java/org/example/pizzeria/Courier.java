@@ -34,7 +34,7 @@ public class Courier extends Thread {
                     return;
                 }
 
-                System.out.printf("Заказ " + order + " доставляется\n");
+                System.out.printf("Order " + order + " is delivering\n");
                 currCapacity++;
             }
             try {

@@ -136,7 +136,7 @@ public class Pizzeria extends Thread {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Работа окончена");
+        System.out.println("Working is over");
         //сохраняем заказы в json
         try {
             saveOrders();
