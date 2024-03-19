@@ -83,7 +83,7 @@ public class MyQueue<T> {
     }
 
     /**
-     * Getter для очереди;
+     * Getter для очереди.
      */
     public Queue<T> getQueue() {
         lock.lock(); //блокируем.
@@ -95,7 +95,7 @@ public class MyQueue<T> {
     }
 
     /**
-     * Setter для очереди;
+     * Setter для очереди.
      */
     public void setQueue(Queue<T> queue) {
         lock.lock();

@@ -6,6 +6,9 @@ import java.io.IOException;
  * main.
  */
 public class Main {
+    /**
+     * main.
+     */
     public static void main(String[] args) throws InterruptedException {
         Pizzeria pizzeria;
         try {
