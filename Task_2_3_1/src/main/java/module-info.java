@@ -1,8 +1,8 @@
-module com.example.task_2_3_1 {
+module com.example.snake {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.example.task_2_3_1 to javafx.fxml;
-    exports com.example.task_2_3_1;
+    opens com.example.snake to javafx.fxml;
+    exports com.example.snake;
 }

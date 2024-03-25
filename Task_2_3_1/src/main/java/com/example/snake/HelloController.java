@@ -1,4 +1,4 @@
-package com.example.task_2_3_1;
+package com.example.snake;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

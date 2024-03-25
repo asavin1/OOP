@@ -1,4 +1,4 @@
-package com.example.task_2_3_1;
+package com.example.snake;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +19,17 @@ import javafx.stage.Stage;
  * Игра змейка.
  */
 public class SnakeGame extends Application {
-    private static int speed = 5; // скорость.
-    private static final int width = 20; // ширина (в клеточках).
-    private static final int height = 20; // высота (в клеточках).
-    private static int foodX = 0; // координата еды X.
-    private static int foodY = 0; // координата еды Y.
-    private static final int cellSize = 25;  // размер клеточки.
-    private static final List<Cell> snake = new ArrayList<>();  // змейка.
-    private static Dir direction = Dir.left;  // направление.
-    private static boolean gameOver = false;  //флаг для конца игры.
-    private static boolean winGame = false;  //флаг для выигрыша.
-    private static final Random rand = new Random();  //рандом.
+    protected static int speed = 5; // скорость.
+    protected static final int width = 20; // ширина (в клеточках).
+    protected static final int height = 20; // высота (в клеточках).
+    protected static int foodX = 0; // координата еды X.
+    protected static int foodY = 0; // координата еды Y.
+    protected static final int cellSize = 25;  // размер клеточки.
+    protected static final List<Cell> snake = new ArrayList<>();  // змейка.
+    protected static Dir direction = Dir.left;  // направление.
+    protected static boolean gameOver = false;  //флаг для конца игры.
+    protected static boolean winGame = false;  //флаг для выигрыша.
+    protected static final Random rand = new Random();  //рандом.
 
 
     /**
