@@ -3,18 +3,17 @@ package com.example.task_2_3_1;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.Scene;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 /**
  * Игра змейка.
@@ -44,8 +43,8 @@ public class SnakeGame extends Application {
      * класс для клеточки.
      */
     public static class Cell {
-        int x;
-        int y;
+        public int x;
+        public int y;
 
         /**
          * Констурктор.
@@ -202,8 +201,7 @@ public class SnakeGame extends Application {
 
         // голова змейки.
         gc.setFill(Color.LIGHTGREEN);
-        gc.fillRect(snake.get(0).x * cellSize,
-                snake.get(0).y * cellSize, cellSize - 1, cellSize - 1);
+        gc.fillRect(snake.get(0).x * cellSize, snake.get(0).y * cellSize, cellSize - 1, cellSize - 1);
 
         // тело змейки.
         for (int k = 1; k < snake.size() - 1; k++) {
@@ -214,8 +212,7 @@ public class SnakeGame extends Application {
         // хвост змейки.
         if (snake.size() > 1) {
             gc.setFill(Color.LIGHTGREEN);
-            gc.fillOval(snake.get(snake.size() - 1).x * cellSize,
-                    snake.get(snake.size() - 1).y * cellSize, cellSize - 1, cellSize - 1);
+            gc.fillOval(snake.get(snake.size() - 1).x * cellSize, snake.get(snake.size() - 1).y * cellSize, cellSize - 1, cellSize - 1);
         }
     }
 
@@ -237,6 +234,9 @@ public class SnakeGame extends Application {
         }
     }
 
+    /**
+     * main.
+     */
     public static void main(String[] args) {
         launch(args);
     }
