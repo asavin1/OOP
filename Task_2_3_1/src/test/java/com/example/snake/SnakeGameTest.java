@@ -19,8 +19,8 @@ public class SnakeGameTest {
     public void testNewFood() {
         SnakeGame game = new SnakeGame();
         newFood();
-        assertTrue(game.foodX < game.width && game.foodX > 0
-                && game.foodY > 0 && game.foodY < game.height);
+        assertTrue(game.foodX < game.width && game.foodX >= 0
+                && game.foodY >= 0 && game.foodY < game.height);
     }
 
     /**
