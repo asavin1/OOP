@@ -201,7 +201,8 @@ public class SnakeGame extends Application {
 
         // голова змейки.
         gc.setFill(Color.LIGHTGREEN);
-        gc.fillRect(snake.get(0).x * cellSize, snake.get(0).y * cellSize, cellSize - 1, cellSize - 1);
+        gc.fillRect(snake.get(0).x * cellSize, snake.get(0).y * cellSize,
+                cellSize - 1, cellSize - 1);
 
         // тело змейки.
         for (int k = 1; k < snake.size() - 1; k++) {
@@ -212,7 +213,8 @@ public class SnakeGame extends Application {
         // хвост змейки.
         if (snake.size() > 1) {
             gc.setFill(Color.LIGHTGREEN);
-            gc.fillOval(snake.get(snake.size() - 1).x * cellSize, snake.get(snake.size() - 1).y * cellSize, cellSize - 1, cellSize - 1);
+            gc.fillOval(snake.get(snake.size() - 1).x * cellSize,
+                    snake.get(snake.size() - 1).y * cellSize, cellSize - 1, cellSize - 1);
         }
     }
 
