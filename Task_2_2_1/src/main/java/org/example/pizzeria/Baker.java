@@ -1,9 +1,13 @@
 package org.example.pizzeria;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 /**
  * пекарь.
  */
 public class Baker extends Thread {
+    private static final Logger logger = LogManager.getLogger(Baker.class);
     private final MyQueue<Integer> orders; //заказы
     private final MyQueue<Integer> storage; //склад
     private final int timeToCook; //время готовки
@@ -31,7 +35,7 @@ public class Baker extends Thread {
                 Thread.currentThread().interrupt();
                 return;
             }
-            System.out.println(order + " is cooking\n");
+            logger.info(order + " is cooking\n");
 
             try {
                 Thread.sleep(timeToCook); //готовим
@@ -42,10 +46,10 @@ public class Baker extends Thread {
                 } catch (InterruptedException e2) {
                     throw new RuntimeException(e2);
                 }
-                System.out.printf("%d order return to queue\n", order);
+                logger.info(order + "order return to queue\n");
                 return;
             }
-            System.out.println(order + " done and at storage now\n");
+            logger.info(order + " done and at storage now\n");
         }
     }
 }

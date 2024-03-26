@@ -1,9 +1,13 @@
 package org.example.pizzeria;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 /**
  * Курьер.
  */
 public class Courier extends Thread {
+    private static final Logger logger = LogManager.getLogger(Courier.class);
     private static final int timeToDelivery = 1000; //ну да, всё за секунду доставляют
     private final MyQueue<Integer> storage;  //склад.
     private final int capacity;  //вместимость сумки курьера.
@@ -34,7 +38,7 @@ public class Courier extends Thread {
                     return;
                 }
 
-                System.out.printf("Order " + order + " is delivering\n");
+                logger.info("Order " + order + " is delivering\n");
                 currCapacity++;
             }
             try {

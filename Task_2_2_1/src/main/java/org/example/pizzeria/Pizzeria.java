@@ -2,10 +2,7 @@ package org.example.pizzeria;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,41 +15,29 @@ public class Pizzeria extends Thread {
     private final int workingHours;
     //очередь заказов.
     private final MyQueue<Integer> orders;
-    //состояние склада.
-    private final MyQueue<Integer> storage;
+    private final MyQueue<Integer> storage; //состояние склада.
     //список пекарей.
     private final List<Thread> bakers;
     //список курьеров.
     private final List<Thread> couriers;
     //имя json файла с заказами и состоянием склада.
-    private static final String jsonOrdersState = "ordersState.json";
-    //имя json файла с конфигурацией пиццерии.
-    private static final String jsonConfig = "pizzeriaConfig.json";
+    private static final String jsonOrdersState = "state.json";
 
     /**
      * Конструктор.
      */
-    public Pizzeria(int workingHours) throws IOException {
-        //нужен для преобразования json файла в объект PizzaConfiguration.
-        ObjectMapper objectMapper = new ObjectMapper();
-        //создаём объект PizzaConfiguration и записываем туда конфигурацию из json.
-        PizzaConfiguration config;
-        try (InputStream fileInputStream = ClassLoader.getSystemResourceAsStream(jsonConfig)) {
-            config = objectMapper.readValue(fileInputStream, PizzaConfiguration.class);
-        }
-        //нужен для преобразования json файла в объект OrdersState.
+    public Pizzeria() throws IOException {
+        PizzaConfiguration config = PizzaConfiguration.setConfig();
         ObjectMapper objectMapper2 = new ObjectMapper();
-        //создаём объект OrdersState и записываем туда конфигурацию из json.
-        OrdersState ordersState;
+        OrdersState state;
         orders = new MyQueue<>();
         storage = new MyQueue<>(config.getStorageCapacity());
         try (FileInputStream fileInputStream = new FileInputStream(jsonOrdersState)) {
-            ordersState = objectMapper2.readValue(fileInputStream, OrdersState.class);
+            state = objectMapper2.readValue(fileInputStream, OrdersState.class);
         }
-        orders.setQueue(ordersState.getOrders());
-        storage.setQueue(ordersState.getStorage());
-        //записываем необходимые поля
-        this.workingHours = workingHours;
+        workingHours = config.getWorkingHours();
+        orders.setQueue(state.getOrders());
+        storage.setQueue(state.getStorage());
         this.bakers = new ArrayList<>();
         this.couriers = new ArrayList<>();
         for (var cookingTime : config.getBakersTimeToCook()) {
@@ -77,8 +62,8 @@ public class Pizzeria extends Thread {
         for (var bakerThread : bakers) {
             bakerThread.start();
         }
-        for (var deliverymanThread : couriers) {
-            deliverymanThread.start();
+        for (var courierThread : couriers) {
+            courierThread.start();
         }
     }
 
@@ -89,15 +74,15 @@ public class Pizzeria extends Thread {
         for (var bakerThread : bakers) {
             bakerThread.interrupt();
         }
-        for (var deliverymanThread : couriers) {
-            deliverymanThread.interrupt();
+        for (var courierThread : couriers) {
+            courierThread.interrupt();
         }
         //ждём пока остановится
         for (var bakerThread : bakers) {
             bakerThread.join();
         }
-        for (var deliverymanThread : couriers) {
-            deliverymanThread.join();
+        for (var courierThread : couriers) {
+            courierThread.join();
         }
     }
 

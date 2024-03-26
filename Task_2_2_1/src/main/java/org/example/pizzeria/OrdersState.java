@@ -8,6 +8,8 @@ import java.util.Queue;
 public class OrdersState {
     private Queue<Integer> orders; //очередь заказов.
     private Queue<Integer> storage; //состояние склада.
+    //имя json файла с заказами и состоянием склада.
+    private static final String jsonOrdersState = "ordersState.json";
 
     /**
      * Getter для очереди заказов.

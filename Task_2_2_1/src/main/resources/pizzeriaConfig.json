@@ -11,5 +11,6 @@
     3,
     4
   ],
-  "storageCapacity": 40
+  "storageCapacity": 40,
+  "workingHours" : 10000
 }
