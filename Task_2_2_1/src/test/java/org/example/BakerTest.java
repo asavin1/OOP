@@ -1,12 +1,11 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.example.pizzeria.Baker;
-import org.example.pizzeria.MyQueue;
-
 import java.util.ArrayList;
 import java.util.Collections;
+import org.example.pizzeria.Baker;
+import org.example.pizzeria.MyQueue;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Тестируем пекаря.

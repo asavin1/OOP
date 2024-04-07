@@ -1,17 +1,16 @@
 package org.example.pizzeria;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.Collections;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Курьер.
  */
 public class Courier extends Thread {
     private static final Logger logger = LogManager.getLogger(Courier.class);
-    private static final int timeToDelivery = 3000; //ну да, всё за секунду доставляют
+    private static final int timeToDelivery = 1000; //ну да, всё за секунду доставляют
     private final ImyQueue<Integer> storage;  //склад.
     private final int capacity;  //вместимость сумки курьера.
     private final ArrayList<Integer> progressDelivering;  //процесс выполнения заказа.
@@ -58,7 +57,7 @@ public class Courier extends Thread {
                         logger.info("Order " + curOrder + " Delivery Progress: "
                                 + progressDelivering.get(curOrder) + "%");
                     }
-                    minProgress+=10;
+                    minProgress += 10;
                 } catch (InterruptedException e) {
                     try {
                         for (Integer curOrder : bag) {
