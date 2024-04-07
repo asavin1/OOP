@@ -1,8 +1,8 @@
 package org.example;
 
+import java.io.IOException;
 import org.example.pizzeria.Pizzeria;
 import org.junit.jupiter.api.Test;
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 

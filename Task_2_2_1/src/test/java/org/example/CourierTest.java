@@ -2,8 +2,8 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import org.example.pizzeria.Courier;
 import org.example.pizzeria.Baker;
+import org.example.pizzeria.Courier;
 import org.example.pizzeria.MyQueue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
