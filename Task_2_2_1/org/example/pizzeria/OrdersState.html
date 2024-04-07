@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -182,20 +182,48 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.util.ArrayList&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProgressCooking()">getProgressCooking</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Getter для прогресса готовки.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.ArrayList&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProgressDelivering()">getProgressDelivering</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Getter для прогресса доставки.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Queue&lt;java.lang.Integer&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStorage()">getStorage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Getter для получения очереди, отвечающей за склад.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOrders(java.util.Queue)">setOrders</a></span>&#8203;(java.util.Queue&lt;java.lang.Integer&gt;&nbsp;orders)</code></th>
 <td class="colLast">
 <div class="block">Setter для очереди заказов.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProgressCooking(java.util.ArrayList)">setProgressCooking</a></span>&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;progressCooking)</code></th>
+<td class="colLast">
+<div class="block">Setter для прогресса готовки.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProgressDelivering(java.util.ArrayList)">setProgressDelivering</a></span>&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;progressDelivering)</code></th>
+<td class="colLast">
+<div class="block">Setter для прогресса доставки.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStorage(java.util.Queue)">setStorage</a></span>&#8203;(java.util.Queue&lt;java.lang.Integer&gt;&nbsp;storage)</code></th>
 <td class="colLast">
@@ -278,11 +306,51 @@ extends java.lang.Object</pre>
 <a id="setStorage(java.util.Queue)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setStorage</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setStorage&#8203;(java.util.Queue&lt;java.lang.Integer&gt;&nbsp;storage)</pre>
 <div class="block">Setter для получения очереди, отвечающей за склад.</div>
+</li>
+</ul>
+<a id="getProgressCooking()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProgressCooking</h4>
+<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;getProgressCooking()</pre>
+<div class="block">Getter для прогресса готовки.</div>
+</li>
+</ul>
+<a id="setProgressCooking(java.util.ArrayList)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setProgressCooking</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setProgressCooking&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;progressCooking)</pre>
+<div class="block">Setter для прогресса готовки.</div>
+</li>
+</ul>
+<a id="getProgressDelivering()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProgressDelivering</h4>
+<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;getProgressDelivering()</pre>
+<div class="block">Getter для прогресса доставки.</div>
+</li>
+</ul>
+<a id="setProgressDelivering(java.util.ArrayList)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setProgressDelivering</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setProgressDelivering&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;progressDelivering)</pre>
+<div class="block">Setter для прогресса доставки.</div>
 </li>
 </ul>
 </li>

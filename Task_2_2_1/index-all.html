@@ -91,17 +91,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </nav>
 </header>
 <main role="main">
-<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a><a id="I:A">
-<!--   -->
-</a>
-<h2 class="title">A</h2>
-<dl>
-<dt><span class="memberNameLink"><a href="org/example/pizzeria/Pizzeria.html#addOrder(int)">addOrder(int)</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/Pizzeria.html" title="class in org.example.pizzeria">Pizzeria</a></dt>
-<dd>
-<div class="block">Добавление заказа.</div>
-</dd>
-</dl>
-<a id="I:B">
+<div class="contentContainer"><a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a><a id="I:B">
 <!--   -->
 </a>
 <h2 class="title">B</h2>
@@ -110,7 +100,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">пекарь.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="org/example/pizzeria/Baker.html#%3Cinit%3E(int,org.example.pizzeria.MyQueue,org.example.pizzeria.MyQueue)">Baker(int, MyQueue&lt;Integer&gt;, MyQueue&lt;Integer&gt;)</a></span> - Constructor for class org.example.pizzeria.<a href="org/example/pizzeria/Baker.html" title="class in org.example.pizzeria">Baker</a></dt>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/Baker.html#%3Cinit%3E(int,org.example.pizzeria.ImyQueue,org.example.pizzeria.ImyQueue,java.util.ArrayList)">Baker(int, ImyQueue&lt;Integer&gt;, ImyQueue&lt;Integer&gt;, ArrayList&lt;Integer&gt;)</a></span> - Constructor for class org.example.pizzeria.<a href="org/example/pizzeria/Baker.html" title="class in org.example.pizzeria">Baker</a></dt>
 <dd>
 <div class="block">Конструктор.</div>
 </dd>
@@ -124,7 +114,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Курьер.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="org/example/pizzeria/Courier.html#%3Cinit%3E(int,org.example.pizzeria.MyQueue)">Courier(int, MyQueue&lt;Integer&gt;)</a></span> - Constructor for class org.example.pizzeria.<a href="org/example/pizzeria/Courier.html" title="class in org.example.pizzeria">Courier</a></dt>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/Courier.html#%3Cinit%3E(int,org.example.pizzeria.ImyQueue,java.util.ArrayList)">Courier(int, ImyQueue&lt;Integer&gt;, ArrayList&lt;Integer&gt;)</a></span> - Constructor for class org.example.pizzeria.<a href="org/example/pizzeria/Courier.html" title="class in org.example.pizzeria">Courier</a></dt>
 <dd>
 <div class="block">Конструктор.</div>
 </dd>
@@ -150,6 +140,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Getter для очереди заказов.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/OrdersState.html#getProgressCooking()">getProgressCooking()</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/OrdersState.html" title="class in org.example.pizzeria">OrdersState</a></dt>
+<dd>
+<div class="block">Getter для прогресса готовки.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/OrdersState.html#getProgressDelivering()">getProgressDelivering()</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/OrdersState.html" title="class in org.example.pizzeria">OrdersState</a></dt>
+<dd>
+<div class="block">Getter для прогресса доставки.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/ImyQueue.html#getQueue()">getQueue()</a></span> - Method in interface org.example.pizzeria.<a href="org/example/pizzeria/ImyQueue.html" title="interface in org.example.pizzeria">ImyQueue</a></dt>
+<dd>
+<div class="block">Getter для очереди.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="org/example/pizzeria/MyQueue.html#getQueue()">getQueue()</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/MyQueue.html" title="class in org.example.pizzeria">MyQueue</a></dt>
 <dd>
 <div class="block">Getter для очереди.</div>
@@ -165,6 +167,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/example/pizzeria/PizzaConfiguration.html#getWorkingHours()">getWorkingHours()</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/PizzaConfiguration.html" title="class in org.example.pizzeria">PizzaConfiguration</a></dt>
 <dd>
 <div class="block">Getter для времени работы пекарни.</div>
+</dd>
+</dl>
+<a id="I:I">
+<!--   -->
+</a>
+<h2 class="title">I</h2>
+<dl>
+<dt><a href="org/example/pizzeria/ImyQueue.html" title="interface in org.example.pizzeria"><span class="typeNameLink">ImyQueue</span></a>&lt;<a href="org/example/pizzeria/ImyQueue.html" title="type parameter in ImyQueue">T</a>&gt; - Interface in <a href="org/example/pizzeria/package-summary.html">org.example.pizzeria</a></dt>
+<dd>
+<div class="block">Interface для очереди.</div>
 </dd>
 </dl>
 <a id="I:M">
@@ -218,9 +230,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Конструктор.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/ImyQueue.html#pop()">pop()</a></span> - Method in interface org.example.pizzeria.<a href="org/example/pizzeria/ImyQueue.html" title="interface in org.example.pizzeria">ImyQueue</a></dt>
+<dd>
+<div class="block">Pop.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="org/example/pizzeria/MyQueue.html#pop()">pop()</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/MyQueue.html" title="class in org.example.pizzeria">MyQueue</a></dt>
 <dd>
 <div class="block">Достаём из очереди.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/ImyQueue.html#push(T)">push(T)</a></span> - Method in interface org.example.pizzeria.<a href="org/example/pizzeria/ImyQueue.html" title="interface in org.example.pizzeria">ImyQueue</a></dt>
+<dd>
+<div class="block">Push.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/example/pizzeria/MyQueue.html#push(T)">push(T)</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/MyQueue.html" title="class in org.example.pizzeria">MyQueue</a></dt>
 <dd>
@@ -266,6 +286,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Setter для очереди заказов.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/OrdersState.html#setProgressCooking(java.util.ArrayList)">setProgressCooking(ArrayList&lt;Integer&gt;)</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/OrdersState.html" title="class in org.example.pizzeria">OrdersState</a></dt>
+<dd>
+<div class="block">Setter для прогресса готовки.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/OrdersState.html#setProgressDelivering(java.util.ArrayList)">setProgressDelivering(ArrayList&lt;Integer&gt;)</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/OrdersState.html" title="class in org.example.pizzeria">OrdersState</a></dt>
+<dd>
+<div class="block">Setter для прогресса доставки.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/ImyQueue.html#setQueue(java.util.Queue)">setQueue(Queue&lt;T&gt;)</a></span> - Method in interface org.example.pizzeria.<a href="org/example/pizzeria/ImyQueue.html" title="interface in org.example.pizzeria">ImyQueue</a></dt>
+<dd>
+<div class="block">Setter для очереди.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="org/example/pizzeria/MyQueue.html#setQueue(java.util.Queue)">setQueue(Queue&lt;T&gt;)</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/MyQueue.html" title="class in org.example.pizzeria">MyQueue</a></dt>
 <dd>
 <div class="block">Setter для очереди.</div>
@@ -282,12 +314,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Getter для времени готовки пекарей.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="org/example/pizzeria/ImyQueue.html#size()">size()</a></span> - Method in interface org.example.pizzeria.<a href="org/example/pizzeria/ImyQueue.html" title="interface in org.example.pizzeria">ImyQueue</a></dt>
+<dd>
+<div class="block">получаем размер очереди.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="org/example/pizzeria/MyQueue.html#size()">size()</a></span> - Method in class org.example.pizzeria.<a href="org/example/pizzeria/MyQueue.html" title="class in org.example.pizzeria">MyQueue</a></dt>
 <dd>
 <div class="block">получаем размер очереди.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a></div>
+<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a></div>
 </main>
 <footer role="contentinfo">
 <nav role="navigation">
