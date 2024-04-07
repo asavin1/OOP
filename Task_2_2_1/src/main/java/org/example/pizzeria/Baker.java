@@ -45,7 +45,7 @@ public class Baker extends Thread {
             while (progress < 100) {
                 try {
                     Thread.sleep(timeToCook / 10); //готовим
-                    progress += 10;// увеличиваем прогресс на 10%
+                    progress += 10; // увеличиваем прогресс на 10%
                     logger.info("Order " + order + " Cooking Progress: " + progress + "%");
                 } catch (InterruptedException e) {
                     try {
