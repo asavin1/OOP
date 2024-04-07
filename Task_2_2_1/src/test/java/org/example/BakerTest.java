@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.example.pizzeria.Baker;
 import org.example.pizzeria.MyQueue;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  * Тестируем пекаря.
  */
@@ -16,8 +19,9 @@ public class BakerTest {
     public void testBaker() throws InterruptedException {
         MyQueue<Integer> orders = new MyQueue<>();
         MyQueue<Integer> storage = new MyQueue<>();
+        ArrayList<Integer> list = new ArrayList<>(Collections.nCopies(11, 0));
         int timeToCook = 100;
-        Baker baker = new Baker(timeToCook, orders, storage);
+        Baker baker = new Baker(timeToCook, orders, storage, list);
         baker.start();
         for (int i = 1; i <= 10; i++) {
             orders.push(i);
@@ -40,8 +44,9 @@ public class BakerTest {
     public void testInterrupting() throws InterruptedException {
         MyQueue<Integer> orders = new MyQueue<>();
         MyQueue<Integer> storage = new MyQueue<>();
+        ArrayList<Integer> list = new ArrayList<>(Collections.nCopies(11, 0));
         int timeToCook = 150;
-        Baker baker = new Baker(timeToCook, orders, storage);
+        Baker baker = new Baker(timeToCook, orders, storage, list);
         for (int i = 1; i <= 10; i++) {
             orders.push(i);
         }

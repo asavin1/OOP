@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * BlockingQueue собственного производства.
  */
-public class MyQueue<T> {
+public class MyQueue<T> implements ImyQueue<T> {
     private final Lock lock = new ReentrantLock(); //блокировка.
     private Queue<T> queue = new LinkedList<>(); //очередь.
     private final Condition notFull = lock.newCondition(); //условие неполноты.
@@ -40,6 +40,7 @@ public class MyQueue<T> {
     /**
      * получаем размер очереди.
      */
+    @Override
     public int size() {
         lock.lock(); //блокируем.
         try {
@@ -52,6 +53,7 @@ public class MyQueue<T> {
     /**
      * Закидываем в очередь.
      */
+    @Override
     public void push(T value) throws InterruptedException {
         lock.lock(); //блокируем
         try {
@@ -68,6 +70,7 @@ public class MyQueue<T> {
     /**
      * Достаём из очереди.
      */
+    @Override
     public T pop() throws InterruptedException {
         lock.lock(); //блокируем.
         try {
@@ -85,6 +88,7 @@ public class MyQueue<T> {
     /**
      * Getter для очереди.
      */
+    @Override
     public Queue<T> getQueue() {
         lock.lock(); //блокируем.
         try {
@@ -97,6 +101,7 @@ public class MyQueue<T> {
     /**
      * Setter для очереди.
      */
+    @Override
     public void setQueue(Queue<T> queue) {
         lock.lock();
         try {

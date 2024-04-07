@@ -1,7 +1,11 @@
 package org.example.pizzeria;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,17 +14,20 @@ import java.util.List;
  * Пиццерия.
  */
 public class Pizzeria extends Thread {
+    private static final Logger logger = LogManager.getLogger(Pizzeria.class);
     //рабочее время.
     private final int workingHours;
     //очередь заказов.
-    private final MyQueue<Integer> orders;
-    private final MyQueue<Integer> storage; //состояние склада.
+    private final ImyQueue<Integer> orders;
+    private final ImyQueue<Integer> storage; //состояние склада.
     //список пекарей.
     private final List<Thread> bakers;
     //список курьеров.
     private final List<Thread> couriers;
     //имя json файла с заказами и состоянием склада.
     private static final String jsonOrdersState = "state.json";
+    private ArrayList<Integer> progressCooking;  //процесс выполнения заказа.
+    private ArrayList<Integer> progressDelivering;  //процесс доставки заказа.
 
     /**
      * Конструктор.
@@ -31,27 +38,24 @@ public class Pizzeria extends Thread {
         OrdersState state;
         orders = new MyQueue<>();
         storage = new MyQueue<>(config.getStorageCapacity());
+        progressCooking = new ArrayList<>();
+        progressDelivering = new ArrayList<>();
         try (FileInputStream fileInputStream = new FileInputStream(jsonOrdersState)) {
             state = objectMapper2.readValue(fileInputStream, OrdersState.class);
         }
         workingHours = config.getWorkingHours();
         orders.setQueue(state.getOrders());
         storage.setQueue(state.getStorage());
+        progressDelivering = state.getProgressDelivering();
+        progressCooking = state.getProgressCooking();
         this.bakers = new ArrayList<>();
         this.couriers = new ArrayList<>();
         for (var cookingTime : config.getBakersTimeToCook()) {
-            this.bakers.add(new Baker(cookingTime, orders, storage));
+            this.bakers.add(new Baker(cookingTime, orders, storage, progressCooking));
         }
         for (var capacity : config.getCouriersCapacity()) {
-            this.couriers.add(new Courier(capacity, storage));
+            this.couriers.add(new Courier(capacity, storage, progressDelivering));
         }
-    }
-
-    /**
-     * Добавление заказа.
-     */
-    public void addOrder(int numberOfOrder) throws InterruptedException {
-        orders.push(numberOfOrder);
     }
 
     /**
@@ -95,6 +99,8 @@ public class Pizzeria extends Thread {
         OrdersState ordersState = new OrdersState();
         ordersState.setOrders(orders.getQueue());
         ordersState.setStorage(storage.getQueue());
+        ordersState.setProgressCooking(progressCooking);
+        ordersState.setProgressDelivering(progressDelivering);
         //записываем всё в json.
         try (FileOutputStream outputStream = new FileOutputStream(jsonOrdersState)) {
             objectMapper.writeValue(outputStream, ordersState);
@@ -120,7 +126,7 @@ public class Pizzeria extends Thread {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Working is over");
+        logger.info("Working is over\n");
         //сохраняем заказы в json
         try {
             saveOrders();

@@ -19,9 +19,6 @@ public class PizzeriaTest {
 
         pizzeria = new Pizzeria();
         pizzeria.start();
-        for (int i = 1; i <= 10; i++) {
-            pizzeria.addOrder(i);
-        }
         pizzeria.join();
         assertFalse(pizzeria.isAlive());
     }

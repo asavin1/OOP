@@ -1,5 +1,6 @@
 package org.example.pizzeria;
 
+import java.util.ArrayList;
 import java.util.Queue;
 
 /**
@@ -8,8 +9,8 @@ import java.util.Queue;
 public class OrdersState {
     private Queue<Integer> orders; //очередь заказов.
     private Queue<Integer> storage; //состояние склада.
-    //имя json файла с заказами и состоянием склада.
-    private static final String jsonOrdersState = "ordersState.json";
+    private ArrayList<Integer> progressCooking;  //процесс выполнения заказа.
+    private ArrayList<Integer> progressDelivering;  //процесс доставки заказа.
 
     /**
      * Getter для очереди заказов.
@@ -37,5 +38,33 @@ public class OrdersState {
      */
     public void setStorage(Queue<Integer> storage) {
         this.storage = storage;
+    }
+
+    /**
+     * Getter для прогресса готовки.
+     */
+    public ArrayList<Integer> getProgressCooking() {
+        return progressCooking;
+    }
+
+    /**
+     * Setter для прогресса готовки.
+     */
+    public void setProgressCooking(ArrayList<Integer> progressCooking) {
+        this.progressCooking = progressCooking;
+    }
+
+    /**
+     * Getter для прогресса доставки.
+     */
+    public ArrayList<Integer> getProgressDelivering() {
+        return progressDelivering;
+    }
+
+    /**
+     * Setter для прогресса доставки.
+     */
+    public void setProgressDelivering(ArrayList<Integer> progressDelivering) {
+        this.progressDelivering = progressDelivering;
     }
 }
