@@ -18,7 +18,7 @@ public class BakerTest {
     public void testBaker() throws InterruptedException {
         MyQueue<Integer> orders = new MyQueue<>();
         MyQueue<Integer> storage = new MyQueue<>();
-        ArrayList<Integer> list = new ArrayList<>(Collections.nCopies(11, 0));
+        ArrayList<Long> list = new ArrayList<>(Collections.nCopies(11, 0L));
         int timeToCook = 100;
         Baker baker = new Baker(timeToCook, orders, storage, list);
         baker.start();
@@ -43,7 +43,7 @@ public class BakerTest {
     public void testInterrupting() throws InterruptedException {
         MyQueue<Integer> orders = new MyQueue<>();
         MyQueue<Integer> storage = new MyQueue<>();
-        ArrayList<Integer> list = new ArrayList<>(Collections.nCopies(11, 0));
+        ArrayList<Long> list = new ArrayList<>(Collections.nCopies(11, 0L));
         int timeToCook = 150;
         Baker baker = new Baker(timeToCook, orders, storage, list);
         for (int i = 1; i <= 10; i++) {

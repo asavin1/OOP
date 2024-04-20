@@ -19,8 +19,8 @@ public class CourierTest {
     public void testCourier() throws InterruptedException {
         MyQueue<Integer> orders = new MyQueue<>();
         MyQueue<Integer> storage = new MyQueue<>();
-        ArrayList<Integer> list = new ArrayList<>(Collections.nCopies(4, 0));
-        ArrayList<Integer> list2 = new ArrayList<>(Collections.nCopies(4, 0));
+        ArrayList<Long> list = new ArrayList<>(Collections.nCopies(4, 0L));
+        ArrayList<Long> list2 = new ArrayList<>(Collections.nCopies(4, 0L));
         int timeToCook = 100;
         Baker baker = new Baker(timeToCook, orders, storage, list);
         Courier courier = new Courier(1, storage, list2);

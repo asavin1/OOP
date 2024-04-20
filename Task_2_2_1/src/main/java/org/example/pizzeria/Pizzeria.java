@@ -25,8 +25,8 @@ public class Pizzeria extends Thread {
     private final List<Thread> couriers;
     //имя json файла с заказами и состоянием склада.
     private static final String jsonOrdersState = "state.json";
-    private ArrayList<Integer> progressCooking;  //процесс выполнения заказа.
-    private ArrayList<Integer> progressDelivering;  //процесс доставки заказа.
+    private ArrayList<Long> progressCooking;  //процесс выполнения заказа.
+    private ArrayList<Long> progressDelivering;  //процесс доставки заказа.
 
     /**
      * Конструктор.

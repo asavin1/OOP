@@ -9,8 +9,8 @@ import java.util.Queue;
 public class OrdersState {
     private Queue<Integer> orders; //очередь заказов.
     private Queue<Integer> storage; //состояние склада.
-    private ArrayList<Integer> progressCooking;  //процесс выполнения заказа.
-    private ArrayList<Integer> progressDelivering;  //процесс доставки заказа.
+    private ArrayList<Long> progressCooking;  //процесс выполнения заказа.
+    private ArrayList<Long> progressDelivering;  //процесс доставки заказа.
 
     /**
      * Getter для очереди заказов.
@@ -43,28 +43,28 @@ public class OrdersState {
     /**
      * Getter для прогресса готовки.
      */
-    public ArrayList<Integer> getProgressCooking() {
+    public ArrayList<Long> getProgressCooking() {
         return progressCooking;
     }
 
     /**
      * Setter для прогресса готовки.
      */
-    public void setProgressCooking(ArrayList<Integer> progressCooking) {
+    public void setProgressCooking(ArrayList<Long> progressCooking) {
         this.progressCooking = progressCooking;
     }
 
     /**
      * Getter для прогресса доставки.
      */
-    public ArrayList<Integer> getProgressDelivering() {
+    public ArrayList<Long> getProgressDelivering() {
         return progressDelivering;
     }
 
     /**
      * Setter для прогресса доставки.
      */
-    public void setProgressDelivering(ArrayList<Integer> progressDelivering) {
+    public void setProgressDelivering(ArrayList<Long> progressDelivering) {
         this.progressDelivering = progressDelivering;
     }
 }
