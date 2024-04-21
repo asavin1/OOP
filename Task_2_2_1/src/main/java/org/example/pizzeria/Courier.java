@@ -36,6 +36,7 @@ public class Courier extends Thread {
             int order;
             ArrayList<Integer> bag = new ArrayList<>();
             long minTime = timeToDelivery; //мин время, сколько уже доставлялся заказ из тех, которые в сумке
+
             //если место в сумке ещё есть и на складе есть готовые заказы
             while (currCapacity < capacity && storage.size() != 0) {
                 try {
@@ -57,8 +58,9 @@ public class Courier extends Thread {
                 try {
                     for (Integer curOrder : bag) {
                         long elapsed = System.currentTimeMillis() - startTime;  //прошедшее время
+                        long alreadyDelivered = progressDelivering.get(curOrder); //время, сколько уже доставляли
                         if (elapsed < timeToDelivery) {
-                            progressDelivering.set(curOrder, elapsed);
+                            progressDelivering.set(curOrder, elapsed + alreadyDelivered);
                             storage.push(curOrder);
                         }
                     }
@@ -71,10 +73,8 @@ public class Courier extends Thread {
                 return;
             }
             for (Integer curOrder : bag) {
-                if (progressDelivering.get(curOrder) >= timeToDelivery) {
-                    logger.info("Order " + curOrder + " delivered");
-                    progressDelivering.set(curOrder, 0L);
-                }
+                logger.info("Order " + curOrder + " delivered");
+                progressDelivering.set(curOrder, 0L);
             }
         }
     }

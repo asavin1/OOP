@@ -42,11 +42,18 @@ public class Baker extends Thread {
             }
             logger.info("Order " + order + " is cooking");
             long startTime = System.currentTimeMillis();
+            long alreadyCooked = progressCooking.get(order);  //время, сколько уже готовили
             try {
-                Thread.sleep(timeToCook - progressCooking.get(order)); //готовим
+                /*
+                 * проблема может возникнуть если один повар уже 400мс готовил, а другой когда взял,
+                 * у него время готовки меньше 400 в таком случае он мгновенно заканчивает заказ.
+                 */
+                if (timeToCook - alreadyCooked > 0)
+                    Thread.sleep(timeToCook - alreadyCooked); //готовим
             } catch (InterruptedException e) {
                 try {
-                    progressCooking.set(order, System.currentTimeMillis() - startTime);
+                    // записываем сколько уже готовили до этого + на этот раз
+                    progressCooking.set(order, alreadyCooked + System.currentTimeMillis() - startTime);
                     orders.push(order);
                 } catch (InterruptedException e2) {
                     throw new RuntimeException(e2);
