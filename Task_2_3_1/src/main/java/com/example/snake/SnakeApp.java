@@ -1,7 +1,7 @@
 package com.example.snake;
 
 /**
- * Класс для запуска
+ * Класс для запуска.
  */
 public class SnakeApp {
     /**
