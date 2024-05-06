@@ -20,8 +20,8 @@ public class SnakeView extends Application {
     /**
      * Запуск приложения.
      */
-    public void launchApp(String[] args) {
-        launch(args);
+    public void launchApp() {
+        launch();
     }
 
     /**

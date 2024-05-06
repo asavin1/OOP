@@ -13,7 +13,7 @@ public class SnakeApp {
 
         //делаем окошко и запускаем.
         SnakeView snakeView = new SnakeView();
-        snakeView.launchApp(args);
+        snakeView.launchApp();
 
         //выставляем управление клавиатурой.
         SnakeController.controlKeys(snakeView.scene);
