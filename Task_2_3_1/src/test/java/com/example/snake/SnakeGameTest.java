@@ -5,8 +5,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.VBox;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Класс для тестирования.
@@ -40,6 +41,39 @@ public class SnakeGameTest {
     }
 
     /**
+     * Тестируем конец игры.
+     */
+    @Test
+    public void testGameOver() {
+        SnakeModel.restartGame();
+        SnakeModel.gameOver = true;
+        VBox root = new VBox();
+        Canvas c = new Canvas(SnakeModel.width * SnakeModel.cellSize,
+                SnakeModel.height * SnakeModel.cellSize);
+        GraphicsContext gc = c.getGraphicsContext2D();
+        root.getChildren().add(c);
+        SnakeModel.tick(gc);
+        assertTrue(SnakeModel.gameOver);
+    }
+
+    /**
+     * Тестируем победу.
+     */
+    @Test
+    public void testWinGame() {
+        SnakeModel.restartGame();
+        SnakeModel.speed = 30;
+        VBox root = new VBox();
+        Canvas c = new Canvas(SnakeModel.width * SnakeModel.cellSize,
+                SnakeModel.height * SnakeModel.cellSize);
+        GraphicsContext gc = c.getGraphicsContext2D();
+        root.getChildren().add(c);
+        SnakeModel.tick(gc);
+        SnakeModel.tick(gc);
+        assertTrue(SnakeModel.winGame);
+    }
+
+    /**
      * Тестируем движение.
      */
     @Test
@@ -49,6 +83,21 @@ public class SnakeGameTest {
         SnakeModel.move();
         assertTrue(SnakeModel.snake.get(0).x == SnakeModel.width / 2 - 1
                 && SnakeModel.snake.get(0).y == SnakeModel.height / 2);
+    }
+
+    /**
+     * Тестируем как кушаем.
+     */
+    @Test
+    public void testEatingFood() {
+        SnakeModel.restartGame();
+        SnakeModel.food.add(new SnakeModel.Cell(SnakeModel.width / 2 - 1, SnakeModel.height / 2));
+        VBox root = new VBox();
+        Canvas c = new Canvas(SnakeModel.width * SnakeModel.cellSize,
+                SnakeModel.height * SnakeModel.cellSize);
+        GraphicsContext gc = c.getGraphicsContext2D();
+        root.getChildren().add(c);
+        SnakeModel.tick(gc);
     }
 
     /**
@@ -77,4 +126,72 @@ public class SnakeGameTest {
         SnakeModel.tick(gc);
         assertFalse(SnakeModel.gameOver);
     }
+
+    /**
+     * Тестируем движение.
+     */
+    @Test
+    public void testDirectionUp() {
+        SnakeModel.restartGame();
+        SnakeModel.direction = SnakeModel.Dir.up;
+        SnakeModel.snake.clear();
+        SnakeModel.snake.add(new SnakeModel.Cell(5, 0));
+        SnakeModel.move();
+        assertEquals(SnakeModel.height - 1, SnakeModel.snake.get(0).y);
+    }
+
+    /**
+     * Тестируем движение.
+     */
+    @Test
+    public void testDirectionDown() {
+        SnakeModel.restartGame();
+        SnakeModel.direction = SnakeModel.Dir.down;
+        SnakeModel.snake.clear();
+        SnakeModel.snake.add(new SnakeModel.Cell(5, SnakeModel.height - 1));
+        SnakeModel.move();
+        assertEquals(0, SnakeModel.snake.get(0).y);
+    }
+
+    /**
+     * Тестируем движение.
+     */
+    @Test
+    public void testDirectionLeft() {
+        SnakeModel.restartGame();
+        SnakeModel.direction = SnakeModel.Dir.left;
+        SnakeModel.snake.clear();
+        SnakeModel.snake.add(new SnakeModel.Cell(0, 4));
+        SnakeModel.move();
+        assertEquals(SnakeModel.width - 1, SnakeModel.snake.get(0).x);
+    }
+
+    /**
+     * Тестируем движение.
+     */
+    @Test
+    public void testDirectionRight() {
+        SnakeModel.restartGame();
+        SnakeModel.direction = SnakeModel.Dir.right;
+        SnakeModel.snake.clear();
+        SnakeModel.snake.add(new SnakeModel.Cell(SnakeModel.width - 1, 4));
+        SnakeModel.move();
+        assertEquals(0, SnakeModel.snake.get(0).x);
+    }
+
+    /**
+     * Тестируем тик игры.
+     */
+    /*@Test
+    public void test() {
+        SnakeApp.main(new String );
+        SnakeModel.restartGame();
+        VBox root = new VBox();
+        Canvas c = new Canvas(SnakeModel.width * SnakeModel.cellSize,
+                SnakeModel.height * SnakeModel.cellSize);
+        GraphicsContext gc = c.getGraphicsContext2D();
+        root.getChildren().add(c);
+        SnakeModel.tick(gc);
+        assertFalse(SnakeModel.gameOver);
+    }*/
 }
