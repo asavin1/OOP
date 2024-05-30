@@ -1,0 +1,16 @@
+{
+  "bakersTimeToCook": [
+    500,
+    600,
+    700,
+    800
+  ],
+  "couriersCapacity": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "storageCapacity": 40,
+  "workingHours" : 1000
+}
