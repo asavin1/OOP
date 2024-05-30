@@ -49,12 +49,23 @@ public class SnakeView extends Application {
                     try {
                         Thread.sleep(1000 / SnakeModel.speed);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Thread.currentThread().interrupt();
                     }
                     SnakeModel.tick(gc);
                 }
             });
             gameThread.start();
+
+            primaryStage.setOnCloseRequest(event -> {
+                gameThread.interrupt();
+                try {
+                    gameThread.join(); // Ждём завершения потока
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Application is closing...");
+            });
+
             scene = new Scene(root, SnakeModel.width * SnakeModel.cellSize,
                     SnakeModel.height * SnakeModel.cellSize);
 

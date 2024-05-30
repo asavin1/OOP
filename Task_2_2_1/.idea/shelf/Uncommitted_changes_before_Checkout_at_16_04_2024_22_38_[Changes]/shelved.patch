@@ -1,0 +1,79 @@
+Index: ../Task_2_3_1/src/main/java/com/example/snake/SnakeGame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.snake;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Random;\r\nimport javafx.animation.AnimationTimer;\r\nimport javafx.application.Application;\r\nimport javafx.scene.canvas.Canvas;\r\nimport javafx.scene.canvas.GraphicsContext;\r\nimport javafx.scene.input.KeyCode;\r\nimport javafx.scene.input.KeyEvent;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.text.Font;\r\nimport javafx.stage.Stage;\r\n\r\n/**\r\n * Игра змейка.\r\n */\r\npublic class SnakeGame extends Application {\r\n    protected static int speed = 5; // скорость.\r\n    protected static final int width = 20; // ширина (в клеточках).\r\n    protected static final int height = 20; // высота (в клеточках).\r\n    protected static int foodX = 0; // координата еды X.\r\n    protected static int foodY = 0; // координата еды Y.\r\n    protected static final int cellSize = 25;  // размер клеточки.\r\n    protected static final List<Cell> snake = new ArrayList<>();  // змейка.\r\n    protected static Dir direction = Dir.left;  // направление.\r\n    protected static boolean gameOver = false;  //флаг для конца игры.\r\n    protected static boolean winGame = false;  //флаг для выигрыша.\r\n    protected static final Random rand = new Random();  //рандом.\r\n\r\n\r\n    /**\r\n     * enum для направлений.\r\n     */\r\n    public enum Dir {\r\n        left, right, up, down\r\n    }\r\n\r\n    /**\r\n     * класс для клеточки.\r\n     */\r\n    public static class Cell {\r\n        public int x;\r\n        public int y;\r\n\r\n        /**\r\n         * Констурктор.\r\n         */\r\n        public Cell(int x, int y) {\r\n            this.x = x;\r\n            this.y = y;\r\n        }\r\n\r\n    }\r\n\r\n    /**\r\n     * Переопределяем из Aplication.\r\n     */\r\n    @Override\r\n    public void start(Stage primaryStage) {\r\n        try {\r\n            // получаем координаты еды.\r\n            newFood();\r\n            // создаём нужные вещи.\r\n            VBox root = new VBox();\r\n            Canvas c = new Canvas(width * cellSize, height * cellSize);\r\n            GraphicsContext gc = c.getGraphicsContext2D();\r\n            root.getChildren().add(c);\r\n            /*\r\n              Класс необходимый для анимации.\r\n             */\r\n            new AnimationTimer() {\r\n                private long lastTick = 0;\r\n\r\n                /**\r\n                 * Переписанный метод, now - время в наносекундах.\r\n                 */\r\n                @Override\r\n                public void handle(long now) {\r\n                    if (lastTick == 0) {\r\n                        lastTick = now;\r\n                        tick(gc);\r\n                        return;\r\n                    }\r\n\r\n                    if (now - lastTick > 1000000000 / speed) {\r\n                        lastTick = now;\r\n                        tick(gc);\r\n                    }\r\n                }\r\n\r\n            }.start();\r\n\r\n            Scene scene = new Scene(root, width * cellSize, height * cellSize);\r\n\r\n            // управляем клавишами и устанавливаем направление.\r\n            scene.addEventFilter(KeyEvent.KEY_PRESSED, key -> {\r\n                if (key.getCode() == KeyCode.W) {\r\n                    direction = Dir.up;\r\n                }\r\n                if (key.getCode() == KeyCode.A) {\r\n                    direction = Dir.left;\r\n                }\r\n                if (key.getCode() == KeyCode.S) {\r\n                    direction = Dir.down;\r\n                }\r\n                if (key.getCode() == KeyCode.D) {\r\n                    direction = Dir.right;\r\n                }\r\n\r\n            });\r\n            // добавляем первый кусок змейки.\r\n            snake.add(new Cell(width / 2, height / 2));\r\n            primaryStage.setScene(scene);\r\n            primaryStage.setTitle(\"SNAKE GAME\");\r\n            primaryStage.show();\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Каждый кадр игры.\r\n     */\r\n    public static void tick(GraphicsContext gc) {\r\n        // конец игры.\r\n        if (gameOver) {\r\n            gc.setFill(Color.RED);\r\n            gc.setFont(new Font(\"\", 50));\r\n            gc.fillText(\"GAME OVER\", 100, 250);\r\n            return;\r\n        }\r\n        // победа.\r\n        if (winGame) {\r\n            gc.setFill(Color.GREEN);\r\n            gc.setFont(new Font(\"\", 50));\r\n            gc.fillText(\"GOOD GAME\", 100, 250);\r\n            return;\r\n        }\r\n\r\n        // движение тела змейки.\r\n        for (int i = snake.size() - 1; i >= 1; i--) {\r\n            snake.get(i).x = snake.get(i - 1).x;\r\n            snake.get(i).y = snake.get(i - 1).y;\r\n        }\r\n\r\n        // смена направления, движение головы и проверка на выход за стены.\r\n        if (direction == Dir.up) {\r\n            snake.get(0).y--;\r\n            if (snake.get(0).y < 0) {\r\n                gameOver = true;\r\n            }\r\n        } else if (direction == Dir.down) {\r\n            snake.get(0).y++;\r\n            if (snake.get(0).y > height) {\r\n                gameOver = true;\r\n            }\r\n        } else if (direction == Dir.left) {\r\n            snake.get(0).x--;\r\n            if (snake.get(0).x < 0) {\r\n                gameOver = true;\r\n            }\r\n        } else if (direction == Dir.right) {\r\n            snake.get(0).x++;\r\n            if (snake.get(0).x > width) {\r\n                gameOver = true;\r\n            }\r\n        }\r\n\r\n        // скушал еду.\r\n        if (foodX == snake.get(0).x && foodY == snake.get(0).y) {\r\n            snake.add(new Cell(-1, -1));\r\n            newFood();\r\n        }\r\n        // смерть об себя.\r\n        for (int i = 1; i < snake.size(); i++) {\r\n            if (snake.get(0).x == snake.get(i).x && snake.get(0).y == snake.get(i).y) {\r\n                gameOver = true;\r\n                break;\r\n            }\r\n        }\r\n        // условие победы.\r\n        if (speed - 6 == 15) {\r\n            winGame = true;\r\n        }\r\n        // раскрашиваем задний фон.\r\n        gc.setFill(Color.BLACK);\r\n        gc.fillRect(0, 0, width * cellSize, height * cellSize);\r\n\r\n        // счёт.\r\n        gc.setFill(Color.WHITE);\r\n        gc.setFont(new Font(\"\", 30));\r\n        gc.fillText(\"Score: \" + (speed - 6), 10, 30);\r\n\r\n        // еда.\r\n        gc.setFill(Color.WHITE);\r\n        gc.fillOval(foodX * cellSize, foodY * cellSize, cellSize, cellSize);\r\n\r\n        // голова змейки.\r\n        gc.setFill(Color.LIGHTGREEN);\r\n        gc.fillRect(snake.get(0).x * cellSize, snake.get(0).y * cellSize,\r\n                cellSize - 1, cellSize - 1);\r\n\r\n        // тело змейки.\r\n        for (int k = 1; k < snake.size() - 1; k++) {\r\n            Cell c = snake.get(k);\r\n            gc.setFill(Color.GREEN);\r\n            gc.fillRect(c.x * cellSize, c.y * cellSize, cellSize - 2, cellSize - 2);\r\n        }\r\n        // хвост змейки.\r\n        if (snake.size() > 1) {\r\n            gc.setFill(Color.LIGHTGREEN);\r\n            gc.fillOval(snake.get(snake.size() - 1).x * cellSize,\r\n                    snake.get(snake.size() - 1).y * cellSize, cellSize - 1, cellSize - 1);\r\n        }\r\n    }\r\n\r\n    // новая еда.\r\n    public static void newFood() {\r\n        while (true) {\r\n            //рандомим координаты.\r\n            foodX = rand.nextInt(width);\r\n            foodY = rand.nextInt(height);\r\n            // проверяем не выпали ли координаты еды на координату змейки.\r\n            for (Cell c : snake) {\r\n                if (c.x == foodX && c.y == foodY) {\r\n                    return;\r\n                }\r\n            }\r\n            // увеличиваем скорость.\r\n            speed++;\r\n            break;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * main.\r\n     */\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Task_2_3_1/src/main/java/com/example/snake/SnakeGame.java b/../Task_2_3_1/src/main/java/com/example/snake/SnakeGame.java
+--- a/../Task_2_3_1/src/main/java/com/example/snake/SnakeGame.java	(revision 8c3a0bb7f99eb35ea5634857d96c16e7ac9140ba)
++++ b/../Task_2_3_1/src/main/java/com/example/snake/SnakeGame.java	(date 1713159282028)
+@@ -173,6 +173,8 @@
+         // скушал еду.
+         if (foodX == snake.get(0).x && foodY == snake.get(0).y) {
+             snake.add(new Cell(-1, -1));
++            // увеличиваем скорость.
++            speed++;
+             newFood();
+         }
+         // смерть об себя.
+@@ -205,17 +207,11 @@
+                 cellSize - 1, cellSize - 1);
+ 
+         // тело змейки.
+-        for (int k = 1; k < snake.size() - 1; k++) {
++        for (int k = 1; k < snake.size(); k++) {
+             Cell c = snake.get(k);
+             gc.setFill(Color.GREEN);
+             gc.fillRect(c.x * cellSize, c.y * cellSize, cellSize - 2, cellSize - 2);
+         }
+-        // хвост змейки.
+-        if (snake.size() > 1) {
+-            gc.setFill(Color.LIGHTGREEN);
+-            gc.fillOval(snake.get(snake.size() - 1).x * cellSize,
+-                    snake.get(snake.size() - 1).y * cellSize, cellSize - 1, cellSize - 1);
+-        }
+     }
+ 
+     // новая еда.
+@@ -230,8 +226,6 @@
+                     return;
+                 }
+             }
+-            // увеличиваем скорость.
+-            speed++;
+             break;
+         }
+     }
+Index: ../Task_2_3_1/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Task_2_3_1/.idea/misc.xml b/../Task_2_3_1/.idea/misc.xml
+--- a/../Task_2_3_1/.idea/misc.xml	(revision 8c3a0bb7f99eb35ea5634857d96c16e7ac9140ba)
++++ b/../Task_2_3_1/.idea/misc.xml	(date 1713158248706)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="17" project-jdk-type="JavaSDK">
+Index: ../Task_2_3_1/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"17\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Task_2_3_1/.idea/gradle.xml b/../Task_2_3_1/.idea/gradle.xml
+--- a/../Task_2_3_1/.idea/gradle.xml	(revision 8c3a0bb7f99eb35ea5634857d96c16e7ac9140ba)
++++ b/../Task_2_3_1/.idea/gradle.xml	(date 1713158499882)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
