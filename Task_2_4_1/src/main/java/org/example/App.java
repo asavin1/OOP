@@ -12,12 +12,8 @@ public class App {
      * Запускает парс.
      */
     public static void start() {
-        String commands = """
-                \"exit\" - stop working
-                \"commands\" - list of known commands
-                \"clone\" - clone repositories
-                \"build\" - build checker
-                \"html\" - generate html result;""";
+        String commands = "'exit' - stop working\n + 'commands' - list of known commands\n" +
+                "'clone' - clone repositories\n" + "'build' - build checker\n 'html' - generate html result;";
         System.out.println("Hello!\n" + commands);
 
         Scanner scanner = new Scanner(System.in);
