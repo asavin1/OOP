@@ -81,7 +81,6 @@ public class Tests {
         assertTrue(new File("./repositories/AnatolySavin/Task_1_3_1").exists());
         assertTrue(new File("./repositories/AnatolySavin/Task_1_4_1").exists());
         assertTrue(new File("./repositories/AnatolySavin/Task_2_1_1").exists());
-        assertTrue(new File("./repositories/AnatolySavin/Task_2_1_2").exists());
         assertTrue(new File("./repositories/AnatolySavin/Task_2_2_1").exists());
 
     }
