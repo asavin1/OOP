@@ -13,11 +13,11 @@ public class App {
      */
     public static void start() {
         String commands = """
-                "exit" - stop working
-                "commands" - list of known commands
-                "clone" - clone repositories
-                "build" - build checker
-                "html" - generate html result;""";
+                \"exit\" - stop working
+                \"commands\" - list of known commands
+                \"clone\" - clone repositories
+                \"build\" - build checker
+                \"html\" - generate html result;""";
         System.out.println("Hello!\n" + commands);
 
         Scanner scanner = new Scanner(System.in);
