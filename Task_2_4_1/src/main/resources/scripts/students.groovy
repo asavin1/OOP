@@ -4,11 +4,11 @@ import groovy.transform.Field
 
 @Field
         students = [
-                "Anatoly Savin": [
+                "AnatolySavin": [
                         username: "Anatoly Savin",
                         repository: "https://github.com/asavin1/OOP"
                 ],
-                "Ruslan Chudinov": [
+                "RuslanChudinov": [
                         username: "Ruslan Chudinov",
                         repository: "https://github.com/ViktorPetrovichBarinov/OOP"
                 ],

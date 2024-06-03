@@ -17,7 +17,7 @@ public class App {
                 "commands" - list of known commands
                 "clone" - clone repositories
                 "build" - build checker
-                "html" - generate html result""";
+                "html" - generate html result;""";
         System.out.println("Hello!\n" + commands);
 
         Scanner scanner = new Scanner(System.in);

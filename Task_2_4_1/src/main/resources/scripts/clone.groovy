@@ -14,7 +14,7 @@ def cloneRepos(LinkedHashMap students) {
         def repo = student.repository
         println("Try to clone repository ${repo} " + "to the \"${pathToCloning}\" directory ")
 
-        def gitCommand = "git clone ${student.repository} ${pathToCloning}"
+        def gitCommand = "git clone ${repo} ${pathToCloning}"
         println("Git command: ${gitCommand}")
 
         def cloning = gitCommand.execute()
