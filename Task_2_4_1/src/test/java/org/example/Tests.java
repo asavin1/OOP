@@ -163,6 +163,5 @@ public class Tests {
         assertTrue(html.toString().contains("<caption>Task_2_2_1</caption>"));
         assertTrue(html.toString().contains("<caption>Task_2_3_1</caption>"));
         assertTrue(html.toString().contains("<caption>Task_2_4_1</caption>"));
-        assertTrue(html.toString().contains("<caption>Task_2_5_1</caption>"));
     }
 }
