@@ -12,8 +12,8 @@ public class App {
      * Запускает парс.
      */
     public static void start() {
-        String commands = "'exit' - stop working\n + 'commands' - list of known commands\n" +
-                "'clone' - clone repositories\n" + "'build' - build checker\n 'html' - generate html result;";
+        String commands = "'html' - generate html result\n + 'commands' - list of known commands\n" +
+                "'clone' - clone repositories\n" + "'build' - build checker\n 'exit' - stop working";
         System.out.println("Hello!\n" + commands);
 
         Scanner scanner = new Scanner(System.in);
@@ -51,7 +51,7 @@ public class App {
                     e.printStackTrace();
                 }
             } else {
-                System.out.println("Unknown command, enter \"help\".");
+                System.out.println("Unknown command, enter 'commands'.");
             }
         }
     }
